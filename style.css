@@ -1,0 +1,55 @@
+body, main {
+  background-color: #0D1117;
+  color: #ddd;
+}
+
+body {
+  margin: 0
+}
+
+p {
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  text-align: center;
+  padding-top: 2rem;
+}
+
+main {
+  max-width: 1500px;
+  min-height: 100vh;
+  margin: auto;
+}
+
+a {
+  text-decoration: none;
+  color: #ddd;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table td,
+table th {
+  border: 1px solid #555;
+  padding: 4px
+}
+
+table th {
+  background-color: #555;
+  color: white;
+  user-select: none;
+  /* cursor: pointer; */
+}
+
+table tr:nth-child(even) {
+  background-color: #181f29;
+}
+
+table tr:hover {
+  background-color: #444;
+}

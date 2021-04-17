@@ -1,0 +1,182 @@
+{
+    "https://www.systembolaget.se/produkt/vin/lynx-465302/": {
+        "name": "Lynx",
+        "subtitle": "Barrel fermented Chardonnay, 2019",
+        "alcohol": "13,5 %",
+        "price": 59,
+        "volume": "375 ml",
+        "sugar": "<3 g/l",
+        "country": "USA, Kalifornien",
+        "nr": "Nr 4653",
+        "tags": [
+            "vin",
+            "vitt vin",
+            "fylligt & smakrikt"
+        ],
+        "image": "https://product-cdn.systembolaget.se/productimages/7442838/7442838_400.png",
+        "apk": 0.86
+    },
+    "https://www.systembolaget.se/produkt/ol/goteborgs-nya-3018903/": {
+        "name": "Göteborgs Nya",
+        "subtitle": "Starkpilsner",
+        "alcohol": "5,7 %",
+        "price": 19,
+        "volume": "330 ml",
+        "country": "Tillverkad i Sverige, Västra Götalands län, Göteborgs stad",
+        "nr": "Nr 30189",
+        "tags": [
+            "öl",
+            "ljus lager",
+            "internationell stil"
+        ],
+        "image": "https://product-cdn.systembolaget.se/productimages/919083/919083_400.png",
+        "apk": 0.99
+    },
+    "https://www.systembolaget.se/produkt/sprit/gibsons-exception-32001/": {
+        "name": "Gibson's Exception",
+        "subtitle": "London Dry Gin",
+        "alcohol": "41 %",
+        "price": 299,
+        "volume": "700 ml",
+        "sugar": "<3 g/l",
+        "country": "Tillverkad i Storbritannien",
+        "nr": "Nr 320",
+        "tags": [
+            "sprit",
+            "gin & genever",
+            "gin"
+        ],
+        "image": "https://sb-product-media-prod.azureedge.net/productimages/24478611/24478611_400.png",
+        "apk": 0.96
+    },
+    "https://www.systembolaget.se/produkt/alkoholfritt/richard-juhlin-191501/": {
+        "name": "Richard Juhlin",
+        "subtitle": "Non-Alcoholic Blanc de Blancs",
+        "alcohol": "0 %",
+        "price": 89,
+        "volume": "750 ml",
+        "sugar": "45 g/l",
+        "country": "Tillverkad i Frankrike",
+        "nr": "Nr 1915",
+        "tags": [
+            "alkoholfritt",
+            "mousserande"
+        ],
+        "image": "https://product-cdn.systembolaget.se/productimages/24558780/24558780_400.png",
+        "apk": 0
+    },
+    "https://www.systembolaget.se/produkt/vin/casas-honestos-7633708/": {
+        "name": "Casas Honestos",
+        "subtitle": "Crisp",
+        "alcohol": "12 %",
+        "price": 169,
+        "volume": "3000 ml",
+        "sugar": "<3 g/l",
+        "country": "Spanien",
+        "nr": "Nr 76337",
+        "tags": [
+            "vin",
+            "vitt vin",
+            "friskt & fruktigt"
+        ],
+        "image": "https://sb-product-media-prod.azureedge.net/productimages/24507690/24507690_400.png",
+        "apk": 2.13
+    },
+    "https://www.systembolaget.se/produkt/ol/bitburger-156503/": {
+        "name": "Bitburger",
+        "subtitle": "Premium",
+        "alcohol": "4,8 %",
+        "price": 14.3,
+        "volume": "330 ml",
+        "country": "Tyskland",
+        "nr": 1565,
+        "tags": [
+            "öl",
+            "ljus lager",
+            "pilsner - tysk stil"
+        ],
+        "image": "https://product-cdn.systembolaget.se/productimages/1167/1167_400.png",
+        "apk": 1.11
+    },
+    "https://www.systembolaget.se/produkt/ol/daura-damm-153203/": {
+        "name": "Daura Damm",
+        "subtitle": "Gluten-free",
+        "alcohol": "5,4 %",
+        "price": 17,
+        "volume": "330 ml",
+        "country": "Spanien",
+        "nr": 1532,
+        "tags": [
+            "öl",
+            "ljus lager",
+            "internationell stil"
+        ],
+        "image": "https://product-cdn.systembolaget.se/productimages/709488/709488_400.png",
+        "apk": 1.05
+    },
+    "https://www.systembolaget.se/produkt/vin/il-conte-232201/": {
+        "name": "il Conte",
+        "subtitle": "Montepulciano d'Abruzzo, 2019",
+        "alcohol": "14 %",
+        "price": 69,
+        "volume": "750 ml",
+        "sugar": "5 g/l",
+        "country": "Italien, Abruzzerna, Montepulciano d'Abruzzo",
+        "nr": 2322,
+        "tags": [
+            "vin",
+            "rött vin",
+            "fruktigt & smakrikt"
+        ],
+        "image": "https://product-cdn.systembolaget.se/productimages/235878/235878_400.png",
+        "apk": 1.52
+    },
+    "https://www.systembolaget.se/produkt/vin/le-hurlevent-229101/": {
+        "name": "Le Hurlevent",
+        "subtitle": "Châteauneuf-du-Pape, 2019",
+        "alcohol": "15,5 %",
+        "price": 249,
+        "volume": "750 ml",
+        "sugar": "4 g/l",
+        "country": "Frankrike, Rhonedalen, Châteauneuf-du-Pape",
+        "nr": 2291,
+        "tags": [
+            "vin",
+            "rött vin",
+            "kryddigt & mustigt"
+        ],
+        "image": "https://product-cdn.systembolaget.se/productimages/714764/714764_400.png",
+        "apk": 0.47
+    },
+    "https://www.systembolaget.se/produkt/sprit/bacardi-limon-73001/": {
+        "name": "Bacardi Limón",
+        "alcohol": "32 %",
+        "price": 236,
+        "volume": "700 ml",
+        "sugar": "59 g/l",
+        "country": "Internationellt märke",
+        "nr": 730,
+        "tags": [
+            "sprit",
+            "smaksatt sprit",
+            "smaksatt sprit av rom"
+        ],
+        "image": "https://product-cdn.systembolaget.se/productimages/45981/45981_400.png",
+        "apk": 0.95
+    },
+    "https://www.systembolaget.se/produkt/ol/carlsberg-sort-guld-129112/": {
+        "name": "Carlsberg Sort Guld",
+        "alcohol": "5,5 %",
+        "price": 15.9,
+        "volume": "500 ml",
+        "country": "Internationellt märke",
+        "nr": 1291,
+        "tags": [
+            "öl",
+            "ljus lager",
+            "internationell stil"
+        ],
+        "image": "https://product-cdn.systembolaget.se/productimages/507846/507846_400.png",
+        "apk": 1.73
+    }
+}
