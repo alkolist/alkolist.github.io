@@ -1,3 +1,22 @@
+function filterTable(columnNumber, input) {
+  let filter = input.value.toLowerCase()
+  let table = document.getElementById("apk-table")
+  let tr = table.getElementsByTagName("tr")
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (let i = 0; i < tr.length; i++) {
+    let td = tr[i].getElementsByTagName("td")[columnNumber]
+    if (td) {
+      let txtValue = td.textContent
+      if (txtValue.toLowerCase().indexOf(filter) > -1) {
+        tr[i].style.display = ""
+      } else {
+        tr[i].style.display = "none"
+      }
+    }
+  }
+}
+
 fetch('https://raw.githubusercontent.com/C4illin/systembolaget-data/main/apksort.json')
   .then(response => response.json())
   .then(data => {

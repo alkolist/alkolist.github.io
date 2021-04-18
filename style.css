@@ -1,4 +1,4 @@
-body, main {
+body, main, input {
   background-color: #0D1117;
   color: #ddd;
 }
@@ -9,6 +9,7 @@ body {
 
 p {
   text-align: center;
+  margin: 10px;
 }
 
 h1 {
@@ -40,6 +41,11 @@ table th {
   padding: 4px
 }
 
+/* table tr {
+  padding-top: 30px;
+  display:table-row;
+} */
+
 table th {
   background-color: #555;
   color: white;
@@ -47,10 +53,23 @@ table th {
   /* cursor: pointer; */
 }
 
-table tr:nth-child(even) {
+/* table tr:nth-child(even) {
   background-color: #181f29;
-}
+} */
 
 table tr:hover {
   background-color: #444;
+}
+
+input {
+  box-shadow: none;
+  border-radius: 10px;
+  border: 1px solid #555;
+  padding: 4px;
+  width: 20rem;
+  text-align: center;
+  margin: 30px auto;
+  display:flex;
+  align-items: center;
+  outline: none;
 }
