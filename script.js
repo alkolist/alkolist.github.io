@@ -25,7 +25,7 @@ fetch('https://raw.githubusercontent.com/C4illin/systembolaget-data/main/apksort
       }
       tablerow.appendChild(document.createElement("td")).textContent = data[num]["tags"].join(", ")
       tablerow.appendChild(document.createElement("td")).textContent = data[num]["alcohol"]
-      tablerow.appendChild(document.createElement("td")).textContent = data[num]["volume"]
+      tablerow.appendChild(document.createElement("td")).textContent = data[num]["volume"].replace(" ", String.fromCharCode(160))
       tablerow.appendChild(document.createElement("td")).textContent = String(data[num]["price"]).replace(".", ",") + " kr"
       tablerow.appendChild(document.createElement("td")).textContent = Number(num) + 1
       
