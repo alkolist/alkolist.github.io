@@ -1,4 +1,4 @@
-fetch('https://rawcdn.githack.com/C4illin/systembolaget-data/bcbaf80971aa899f70401e9af571cd0d35657bb6/apksort.json')
+fetch('https://gitcdn.xyz/repo/C4illin/systembolaget-data/main/apksort.json')
   .then(response => response.json())
   .then(data => {
     // console.log(data)
