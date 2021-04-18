@@ -1,4 +1,4 @@
-fetch('https://gitcdn.xyz/repo/C4illin/systembolaget-data/main/apksort.json')
+fetch('https://raw.githubusercontent.com/C4illin/systembolaget-data/main/apksort.json')
   .then(response => response.json())
   .then(data => {
     // console.log(data)
