@@ -27,8 +27,15 @@ main {
 
 a {
   text-decoration: none;
-  display: block;
   color: #ddd;
+}
+
+table a {
+  display: block;
+}
+
+footer p a {
+  white-space: nowrap;
 }
 
 table {
