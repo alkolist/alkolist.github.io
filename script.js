@@ -41,9 +41,9 @@ fetch('https://raw.githubusercontent.com/C4illin/systembolaget-data/main/apksort
       tablerow.appendChild(document.createElement("td")).innerHTML = "<b>" + (Number(num) + 1) + "</b>"
       tablerow.appendChild(document.createElement("td")).textContent = data[num]["apk"]
       if (data[num]["subtitle"]) {
-        tablerow.appendChild(document.createElement("td")).innerHTML = "<a href='https://www.systembolaget.se/produkt/" + data[num]["url"] + "/'><b>" + data[num]["name"] + "</b> " + data[num]["subtitle"] + "</a>"
+        tablerow.appendChild(document.createElement("td")).innerHTML = "<a href='https://www.systembolaget.se/produkt/" + data[num]["url"] + "/' target='_blank'><b>" + data[num]["name"] + "</b> " + data[num]["subtitle"] + "</a>"
       } else {
-        tablerow.appendChild(document.createElement("td")).innerHTML = "<a href='https://www.systembolaget.se/produkt/" + data[num]["url"] + "/'><b>" + data[num]["name"] + "</b></a>"
+        tablerow.appendChild(document.createElement("td")).innerHTML = "<a href='https://www.systembolaget.se/produkt/" + data[num]["url"] + "/' target='_blank'><b>" + data[num]["name"] + "</b></a>"
       }
       tablerow.appendChild(document.createElement("td")).textContent = data[num]["tags"].join(", ")
       tablerow.appendChild(document.createElement("td")).textContent = data[num]["alcohol"]
