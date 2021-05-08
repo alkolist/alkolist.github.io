@@ -45,6 +45,7 @@ jekyll_get_json:
 # their entries' file path in the `include:` list.
 #
 exclude:
+  - README.md
   - Gemfile
   - Gemfile.lock
   - old/
