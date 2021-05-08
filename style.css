@@ -47,6 +47,7 @@ td a {
 
 footer p a {
   white-space: nowrap;
+  text-decoration: underline;
 }
 
 table {
@@ -122,7 +123,7 @@ only screen and (max-width: 760px),
     "name name name"
     "type type type"
     "alcohol volume price";
-    border: 1px solid #555;
+    border-top: 1px solid #555;
   }
 
   td {
@@ -164,4 +165,8 @@ only screen and (max-width: 760px),
 	/* td:nth-of-type(5):before { content: "Alkohol: "; } */
 	/* td:nth-of-type(6):before { content: "Volym: "; } */
 	/* td:nth-of-type(7):before { content: "Pris: "; } */
+
+  footer {
+    margin: 30px 0;
+  }
 }
