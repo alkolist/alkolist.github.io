@@ -45,5 +45,5 @@ search.addEventListener('keyup', function (e) {
     clearTimeout(timeout);
     timeout = setTimeout(function () {
       onSearch()
-    }, 1000);
+    }, 500);
 });
