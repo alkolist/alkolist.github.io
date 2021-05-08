@@ -1,37 +1,74 @@
+---
+permalink:
+layout: none
+---
+
 <!DOCTYPE html>
 <html lang="sv">
+
 <head>
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZMLWKDTR4C"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-ZMLWKDTR4C');
   </script>
   <title>APK Systembolaget</title>
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.18.0/clusterize.min.css"
+    integrity="sha512-67r8GWGen3CmoHmvKJtZyf5xmDlPBeIGHB89/778A/L28BmcSc+AHwn/toK+nZFgwu5x9XLD/PunV4twUtkOLA=="
+    crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.18.0/clusterize.min.js"
+    integrity="sha512-J9kWigtolF+Ur3ozrZwj18sLPTeAFNiwLxFHaXtmjKao7MZ1g3UWnTn8y1ChS48V2JM7ErQV2r1uMeMaplN+EA=="
+    crossorigin="anonymous"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script> -->
 </head>
-<body>
-  <main>
-    <h1>APK Systembolaget</h1>
-    <p>Systembolagets drycker sorterade efter APK mätt i milliliter etanol per krona.</p>
-    <input type="text" onkeyup="filterTable(2, this)" placeholder="Filtrera namn">
-    <input type="text" onkeyup="filterTable(3, this)" placeholder="Filtrera typ">
-    <table id="apk-table">
 
-    </table>
-    <footer>
-      <p>Data from <i><a href="https://github.com/C4illin/systembolaget-data">github.com/C4illin/systembolaget-data</a></i> and source code available at <i><a href="https://github.com/alkolist/alkolist.github.io">github.com/alkolist/alkolist.github.io</a></i></p>
-      
-    </footer>
-  </main>
+<body id="clusterize">
+  <div id="scrollArea" class="clusterize-scroll">
+    <main>
+      <h1>APK Systembolaget</h1>
+      <p>Systembolagets drycker sorterade efter APK mätt i milliliter etanol per krona.</p>
+      <input type="text" id="type-search" placeholder="Filtrera typ"/>
+      <table>
+        <thead>
+          <tr>
+            <th><a class="sort" data-sort="index">Nr</a></th>
+            <th><a class="sort" data-sort="apk">APK</a></th>
+            <th><a class="sort" data-sort="name">Namn</a></th>
+            <th><a class="sort" data-sort="tags">Typ</a></th>
+            <th><a class="sort" data-sort="alcohol">Alkohol</a></th>
+            <th><a class="sort" data-sort="volume">Volym</a></th>
+            <th><a class="sort" data-sort="price">Pris</a></th>
+          </tr>
+        </thead>
+        <tbody id="contentArea" class="clusterize-content">
+          <tr class="clusterize-no-data">
+            <td>Loading data…</td>
+          </tr>
+        </tbody>
+      </table>
+      <footer>
+        <p>Data from <i><a
+              href="https://github.com/C4illin/systembolaget-data">github.com/C4illin/systembolaget-data</a></i> and
+          source code available at <i><a
+              href="https://github.com/alkolist/alkolist.github.io">github.com/alkolist/alkolist.github.io</a></i></p>
+      </footer>
+    </main>
+  </div>
   <script src="script.js"></script>
 </body>
+
 </html>
