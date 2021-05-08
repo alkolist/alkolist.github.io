@@ -30,6 +30,7 @@ github_username:  C4illin
 theme: minima
 plugins:
   - jekyll-get-json
+  - github-pages
 
 
 jekyll_get_json:
