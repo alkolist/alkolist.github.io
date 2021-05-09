@@ -67,11 +67,6 @@ td:nth-of-type(4) {
   white-space: normal;
 }
 
-/* tr {
-  padding-top: 30px;
-  display:table-row;
-} */
-
 th {
   background-color: #555;
   color: white;
@@ -89,18 +84,31 @@ tr:nth-child(even) {
 
 input {
   box-shadow: none;
-  border-radius: 10px;
+  border-radius: 999rem;
   border: 1px solid #555;
   padding: 4px;
   max-width: 20rem;
   width: 80vw;
   text-align: center;
-  margin: 30px auto;
+  margin: 10px 20px 0 20px;
   display:flex;
   align-items: center;
   outline: none;
 }
 
+input[type=button] {
+  border: 1px solid #ddd;
+  background-color: #ddd;
+  color: #0D1117;
+  max-width: 5rem;
+  cursor: pointer;
+  margin: 20px auto;
+}
+
+#search {
+  display: flex;
+  justify-content: center;
+}
 
 @media 
 only screen and (max-width: 760px),
@@ -171,6 +179,14 @@ only screen and (max-width: 760px),
 	/* td:nth-of-type(5):before { content: "Alkohol: "; } */
 	/* td:nth-of-type(6):before { content: "Volym: "; } */
 	/* td:nth-of-type(7):before { content: "Pris: "; } */
+
+  #search {
+    display: block;
+  }
+
+  input {
+    margin: 20px auto;
+  }
 
   footer {
     margin: 30px 0;
