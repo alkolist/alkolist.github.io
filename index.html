@@ -22,10 +22,9 @@ layout: none
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-ZMLWKDTR4C');
   </script>
-  <title>APK Systembolaget</title>
+  <title>{{ site.title }}</title>
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.18.0/clusterize.min.css"
     integrity="sha512-67r8GWGen3CmoHmvKJtZyf5xmDlPBeIGHB89/778A/L28BmcSc+AHwn/toK+nZFgwu5x9XLD/PunV4twUtkOLA=="
@@ -33,14 +32,14 @@ layout: none
   <script src="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.18.0/clusterize.min.js"
     integrity="sha512-J9kWigtolF+Ur3ozrZwj18sLPTeAFNiwLxFHaXtmjKao7MZ1g3UWnTn8y1ChS48V2JM7ErQV2r1uMeMaplN+EA=="
     crossorigin="anonymous"></script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script> -->
+  {% seo %}
 </head>
 
 <body id="clusterize">
   <div id="scrollArea" class="clusterize-scroll">
     <main>
-      <h1>APK Systembolaget</h1>
-      <p>Systembolagets drycker sorterade efter APK mätt i milliliter etanol per krona.</p>
+      <h1>{{ site.title }}</h1>
+      <p>{{ site.description }}</p>
       <input type="text" id="type-search" placeholder="Filtrera typ" />
       <table>
         <thead>
@@ -61,10 +60,11 @@ layout: none
         </tbody>
       </table>
       <footer>
-        <p>Data from <a
-              href="https://github.com/C4illin/systembolaget-data">github.com/C4illin/systembolaget-data</a> and
-          source code available at <a
-              href="https://github.com/alkolist/alkolist.github.io">github.com/alkolist/alkolist.github.io</a></p>
+        <p>Data from
+          <a href="https://github.com/C4illin/systembolaget-data">github.com/C4illin/systembolaget-data</a>
+          and source code available at
+          <a href="https://github.com/alkolist/alkolist.github.io">github.com/alkolist/alkolist.github.io</a>
+        </p>
       </footer>
     </main>
   </div>
