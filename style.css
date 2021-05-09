@@ -24,7 +24,7 @@ h1 {
   padding-top: 2rem;
 }
 
-div#scrollArea{
+div#scrollArea {
   min-height: 100vh;
   margin: auto;
 }
@@ -55,15 +55,13 @@ table {
   width: 100%;
 }
 
-td,
-th {
+td, th {
   border: 1px solid #555;
   padding: 3px;
   white-space: nowrap;
 }
 
-td:nth-of-type(3),
-td:nth-of-type(4) {
+td:nth-of-type(3), td:nth-of-type(4) {
   white-space: normal;
 }
 
@@ -91,7 +89,7 @@ input {
   width: 80vw;
   text-align: center;
   margin: 10px 20px 0 20px;
-  display:flex;
+  display: flex;
   align-items: center;
   outline: none;
 }
@@ -105,51 +103,39 @@ input[type=button] {
   margin: 20px auto;
 }
 
-#search {
+div#search {
   display: flex;
   justify-content: center;
 }
 
-@media 
-only screen and (max-width: 760px),
-(min-device-width: 760px) and (max-device-width: 1024px)  {
+@media only screen and (max-width: 760px), (min-device-width: 760px) and (max-device-width: 1024px) {
   table {
     overflow: hidden;
   }
-
-	table, thead, tbody, th, td { 
-		display: block; 
-	}
-	
-	/* Hide table headers (but not display: none;, for accessibility) */
-	thead tr { 
-		position: absolute;
-		top: -9999px;
-		left: -9999px;
-	}
-	
-	tr {
+  table, thead, tbody, th, td {
+    display: block;
+  }
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  tr {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
-    grid-template-areas:
-    "place . apk"
-    "name name name"
-    "type type type"
-    "alcohol volume price";
+    grid-template-areas: "place . apk" "name name name" "type type type" "alcohol volume price";
     border-top: 1px solid #555;
   }
-
   td {
     border: none;
     white-space: nowrap;
     padding: 3px 10px;
   }
-
   td:nth-of-type(1) {
     grid-area: place;
-  } 
-
+  }
   td:nth-of-type(2) {
     grid-area: apk;
     text-align: right;
@@ -171,23 +157,23 @@ only screen and (max-width: 760px),
     grid-area: price;
     text-align: right;
   }
-
-	td:nth-of-type(1):before { content: "#"; }
-	td:nth-of-type(2):after { content: " APK"; }
-	/* td:nth-of-type(3):before { content: "Namn:"; } */
-	/* td:nth-of-type(4):before { content: "Typ"; } */
-	/* td:nth-of-type(5):before { content: "Alkohol: "; } */
-	/* td:nth-of-type(6):before { content: "Volym: "; } */
-	/* td:nth-of-type(7):before { content: "Pris: "; } */
-
-  #search {
+  td:nth-of-type(1):before {
+    content: "#";
+  }
+  td:nth-of-type(2):after {
+    content: " APK";
+  }
+  /* td:nth-of-type(3):before { content: "Namn:"; } */
+  /* td:nth-of-type(4):before { content: "Typ"; } */
+  /* td:nth-of-type(5):before { content: "Alkohol: "; } */
+  /* td:nth-of-type(6):before { content: "Volym: "; } */
+  /* td:nth-of-type(7):before { content: "Pris: "; } */
+  div#search {
     display: block;
   }
-
   input {
     margin: 20px auto;
   }
-
   footer {
     margin: 30px 0;
   }
