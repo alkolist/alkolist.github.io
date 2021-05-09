@@ -39,15 +39,11 @@ plugins:
   - jekyll-get-json
   - jekyll-sitemap
   - jekyll-seo-tag
-  - jekyll-minifier
 
 jekyll_get_json:
   - data: apk
     json: 'https://raw.githubusercontent.com/C4illin/systembolaget-data/main/apksort.json'
 
-jekyll-minifier:
-  uglifier_args:
-    harmony: true
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
