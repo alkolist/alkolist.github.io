@@ -37,7 +37,7 @@ var onSearch = function() {
   console.log(nameSearch.value)
   for(var i = 0, ii = rows.length; i < ii; i++) {
     var suitable = false
-    if(tags[i].includes(typeSearch.value) && names[i].includes(nameSearch.value)) {
+    if(tags[i].includes(typeSearch.value.toLowerCase()) && names[i].includes(nameSearch.value.toLowerCase())) {
       suitable = true
     }
     active[i] = suitable
