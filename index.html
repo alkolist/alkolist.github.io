@@ -40,7 +40,11 @@ layout: none
     <main>
       <h1>{{ site.title }}</h1>
       <p>{{ site.description }}</p>
-      <input type="text" id="type-search" placeholder="Filtrera typ" />
+      <div id="search">
+        <input type="search" id="name-search" placeholder="Filtrera namn" />
+        <input type="search" id="type-search" placeholder="Filtrera typ" />
+      </div>
+      <input type="button" value="Clear" onclick="clearSearchBox()">
       <table>
         <thead>
           <tr>
@@ -54,7 +58,16 @@ layout: none
           </tr>
         </thead>
         <tbody id="contentArea" class="clusterize-content">
-          {% for row in site.data.apk limit:30 %}<tr><td>{{forloop.index}}</td><td>{{row['apk'] | replace: '.', ','}}</td><td><a href='https://www.systembolaget.se/produkt/{{row['url']}}/' target='_blank'><b>{{row['name'] | replace: '"', '\"'}}</b>{{' ' | append: row['subtitle'] | replace: '"', '\"'}}</a></td><td>{{row['tags'] | join: ', '}}</td><td>{{row['alcohol'] | replace: ' ', ' '}}</td><td>{{row['volume'] | replace: ' ', ' '}}</td><td>{{row['price'] | replace: '.', ',' | append: ' kr'}}</td></tr>{% endfor %}
+          {% for row in site.data.apk limit:30 %}<tr>
+            <td>{{forloop.index}}</td>
+            <td>{{row['apk'] | replace: '.', ','}}</td>
+            <td><a href='https://www.systembolaget.se/produkt/{{row[' url']}}/' target='_blank'><b>{{row['name'] |
+                  replace: '"', '\"'}}</b>{{' ' | append: row['subtitle'] | replace: '"', '\"'}}</a></td>
+            <td>{{row['tags'] | join: ', '}}</td>
+            <td>{{row['alcohol'] | replace: ' ', ' '}}</td>
+            <td>{{row['volume'] | replace: ' ', ' '}}</td>
+            <td>{{row['price'] | replace: '.', ',' | append: ' kr'}}</td>
+          </tr>{% endfor %}
         </tbody>
       </table>
       <footer>
