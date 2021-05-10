@@ -16,14 +16,6 @@ layout: none
   <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZMLWKDTR4C"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-ZMLWKDTR4C');
-  </script>
   <title>{{ site.title }}</title>
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.18.0/clusterize.min.css"
@@ -58,16 +50,10 @@ layout: none
           </tr>
         </thead>
         <tbody id="contentArea" class="clusterize-content">
-          {% for row in site.data.apk limit:30 %}<tr>
-            <td>{{forloop.index}}</td>
-            <td>{{row['apk'] | replace: '.', ','}}</td>
-            <td><a href='https://www.systembolaget.se/produkt/{{row[' url']}}/' target='_blank'><b>{{row['name'] |
-                  replace: '"', '\"'}}</b>{{' ' | append: row['subtitle'] | replace: '"', '\"'}}</a></td>
-            <td>{{row['tags'] | join: ', '}}</td>
-            <td>{{row['alcohol'] | replace: ' ', ' '}}</td>
-            <td>{{row['volume'] | replace: ' ', ' '}}</td>
-            <td>{{row['price'] | replace: '.', ',' | append: ' kr'}}</td>
-          </tr>{% endfor %}
+          {% for row in site.data.apk limit:30 %}<tr><td>{{forloop.index}}</td><td>{{row['apk'] | replace: '.', ','}}</td><td><a href='https://www.systembolaget.se/produkt/{{row[' url']}}/' target='_blank'><b>{{row['name'] | replace: '"', '\"'}}</b>{{' ' | append: row['subtitle'] | replace: '"', '\"'}}</a></td><td>{{row['tags'] | join: ', '}}</td><td>{{row['alcohol'] | replace: ' ', ' '}}</td><td>{{row['volume'] | replace: ' ', ' '}}</td><td>{{row['price'] | replace: '.', ',' | append: ' kr'}}</td></tr>{% endfor %}
+          <tr class="clusterize-no-data" colspan="7">
+            <td>Loading more data…</td>
+          </tr>
         </tbody>
       </table>
       <footer>
