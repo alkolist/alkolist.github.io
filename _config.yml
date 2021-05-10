@@ -39,10 +39,28 @@ plugins:
   - jekyll-get-json
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll-assets
 
 jekyll_get_json:
   - data: apk
     json: 'https://raw.githubusercontent.com/C4illin/systembolaget-data/main/apksort.json'
+
+assets:
+  source_maps: true
+  destination: "/assets"
+  compression: true
+  gzip: true
+  defaults:
+    integrity:
+      {css,img,js}: false
+  caching:
+    enabled: true
+    path: ".jekyll-cache/assets"
+    type: file
+  cdn:
+    baseurl: false
+    destination: false
+    url: null
 
 # Exclude from processing.
 # The following items will not be processed, by default.
