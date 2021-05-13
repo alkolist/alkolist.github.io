@@ -16,11 +16,10 @@ group :jekyll_plugins do
   gem "jekyll-get-json"
   gem "jekyll-sitemap"
   gem "jekyll-seo-tag"
-  gem "jekyll-assets"
 end
 
-gem "crass"
-gem "autoprefixer-rails"
+# gem "crass"
+# gem "autoprefixer-rails"
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
 # and associated library.
