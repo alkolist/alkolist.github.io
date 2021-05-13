@@ -1,6 +1,6 @@
 ---
 permalink:
-layout: none
+layout: compress
 ---
 
 <!DOCTYPE html>
@@ -22,19 +22,48 @@ layout: none
   <script src="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.18.0/clusterize.min.js"
     integrity="sha512-J9kWigtolF+Ur3ozrZwj18sLPTeAFNiwLxFHaXtmjKao7MZ1g3UWnTn8y1ChS48V2JM7ErQV2r1uMeMaplN+EA=="
     crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="nouislider.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.0.0/nouislider.min.js"
+    integrity="sha512-6vo59lZMHB6GgEySnojEnfhnugP7LR4qm6akxptNOw/KW+i9o9MK4Gaia8f/eJATjAzCkgN3CWlIHWbVi2twpg=="
+    crossorigin="anonymous"></script>
   {% seo %}
 </head>
 
 <body id="clusterize">
   <div id="scrollArea" class="clusterize-scroll">
     <main>
-      <h1>{{ site.title }}</h1>
-      <p>{{ site.description }}</p>
-      <div id="search">
-        <input type="search" id="name-search" placeholder="Filtrera namn" />
-        <input type="search" id="type-search" placeholder="Filtrera typ" />
-      </div>
-      <input type="button" value="Clear" onclick="clearSearchBox()">
+      <header>
+        <h1>{{ site.title }}</h1>
+        <p id="subtitle">{{ site.description }}</p>
+        <input class="left" type="search" id="name-search" placeholder="Filtrera namn" />
+        <input class="right" type="search" id="type-search" placeholder="Filtrera typ" />
+
+        <div id="volume-slider" class="slider"></div>
+        <div class="left slider-min-max" id="minvol">
+          <label for="min-volume">min</label>
+          <input type="text" id="min-volume" value="0">
+          <span>ml</span>
+        </div>
+        <div class="right slider-min-max" id="maxvol">
+          <label for="max-volume">max</label>
+          <input type="text" id="max-volume" value="30000">
+          <span>ml</span>
+        </div>
+
+        <div id="price-slider" class="slider"></div>
+        <div class="left slider-min-max" id="minpri">
+          <label for="min-price">min</label>
+          <input type="text" id="min-price">
+          <span>kr</span>
+        </div>
+        <div class="right slider-min-max" id="maxpri">
+          <label for="max-price">max</label>
+          <input type="text" id="max-price">
+          <span>kr</span>
+        </div>
+  
+        <input type="button" value="Clear" onclick="clearSearchBox()">
+      </header>
       <table>
         <thead>
           <tr>
@@ -48,9 +77,19 @@ layout: none
           </tr>
         </thead>
         <tbody id="contentArea" class="clusterize-content">
-          {% for row in site.data.apk limit:30 %}<tr><td>{{forloop.index}}</td><td>{{row['apk'] | replace: '.', ','}}</td><td><a href='https://www.systembolaget.se/produkt/{{row[' url']}}/' target='_blank'><b>{{row['name'] | replace: '"', '\"'}}</b>{{' ' | append: row['subtitle'] | replace: '"', '\"'}}</a></td><td>{{row['tags'] | join: ', '}}</td><td>{{row['alcohol'] | replace: ' ', ' '}}</td><td>{{row['volume'] | replace: ' ', ' '}}</td><td>{{row['price'] | replace: '.', ',' | append: ' kr'}}</td></tr>{% endfor %}
-          <tr class="clusterize-no-data" colspan="7">
-            <td>Loading more data…</td>
+          {% for row in site.data.apk limit:30 %}<tr>
+            <td>{{forloop.index}}</td>
+            <td>{{row['apk'] | replace: '.', ','}}</td>
+            <td><a href="https://www.systembolaget.se/produkt/{{row['url']}}/" target='_blank'><b>{{row['name'] | replace: '"', '\"'}}</b>{{' ' | append: row['subtitle'] | replace: '"', '\"'}}</a></td>
+            <td>{{row['tags'] | join: ', '}}</td>
+            <td>{{row['alcohol'] | replace: ' ', ' '}}</td>
+            <td>{{row['volume'] | replace: ' ', ' '}}</td>
+            <td>{{row['price'] | replace: '.', ',' | append: ' kr'}}</td>
+          </tr>{% endfor %}
+          <tr colspan="7" class="clusterize-no-data">
+            <td></td>
+            <td></td>
+            <td colspan="5" >Loading more data…</td>
           </tr>
         </tbody>
       </table>
@@ -58,7 +97,9 @@ layout: none
         <p>Data from
           <a href="https://github.com/C4illin/systembolaget-data">github.com/C4illin/systembolaget-data</a>
           and source code available at
-          <a href="https://github.com/alkolist/alkolist.github.io">github.com/alkolist/alkolist.github.io</a>
+          <a href="https://github.com/alkolist/alkolist.github.io">github.com/alkolist/alkolist.github.io</a>.
+          <a
+            href="https://github.com/C4illin/Userscripts/raw/master/APK-Systembolaget/apk.systembolaget.user.js">Userscript</a>.
         </p>
       </footer>
     </main>

@@ -3,16 +3,17 @@ GEM
   specs:
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
-    autoprefixer-rails (9.8.6.5)
-      execjs
+    autoprefixer-rails (10.2.5.0)
+      execjs (< 2.8.0)
     colorator (1.1.0)
     concurrent-ruby (1.1.8)
+    crass (1.0.6)
     deep_merge (1.2.1)
     em-websocket (0.5.2)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
     eventmachine (1.2.7-x64-mingw32)
-    execjs (2.8.0)
+    execjs (2.7.0)
     fastimage (1.8.1)
       addressable (~> 2.3, >= 2.3.5)
     ffi (1.15.0-x64-mingw32)
@@ -44,8 +45,6 @@ GEM
       sprockets (~> 2.10)
       sprockets-helpers
       sprockets-sass
-    jekyll-autoprefixer (1.0.2)
-      autoprefixer-rails (~> 9.3)
     jekyll-get-json (1.0.0)
       deep_merge (~> 1.2)
       jekyll (>= 3.0)
@@ -110,9 +109,10 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  autoprefixer-rails
+  crass
   jekyll (~> 4.2.0)
   jekyll-assets
-  jekyll-autoprefixer
   jekyll-get-json
   jekyll-seo-tag
   jekyll-sitemap
