@@ -38,6 +38,8 @@ layout: compress
         <input class="left" type="search" id="name-search" placeholder="Filtrera namn" />
         <input class="right" type="search" id="type-search" placeholder="Filtrera typ" />
 
+        <input class="left" type="button" id="show-filter" onclick="showFilter(this)" value="▼ Fler filter">
+
         <div id="volume-slider" class="slider"></div>
         <div class="left slider-min-max" id="minvol">
           <label for="min-volume">min</label>
@@ -62,7 +64,7 @@ layout: compress
           <span>kr</span>
         </div>
   
-        <input type="button" value="Clear" onclick="clearSearchBox()">
+        <input type="button" value="Clear" class="right" onclick="clearSearchBox()">
       </header>
       <table>
         <thead>

@@ -2,12 +2,12 @@
 
 ---
 
-var rows = [{% for row in site.data.apk %}{% if forloop.first != true %},{% endif %}"<tr><td>{{forloop.index}}</td><td>{{row['apk'] | replace: '.', ','}}</td><td><a href='https://www.systembolaget.se/produkt/{{row['url']}}/' target='_blank'><b>{{row['name'] | replace: '"', '\"'}}</b>{{' ' | append: row['subtitle'] | replace: '"', '\"'}}</a></td><td>{{row['tags'] | join: ', '}}</td><td>{{row['alcohol'] | replace: ' ', ' '}}</td><td>{{row['volume'] | replace: ' ', ' '}}</td><td>{{row['price'] | replace: '.', ',' | append: ' kr'}}</td></tr>"{% endfor %}]
+let rows = [{% for row in site.data.apk %}{% if forloop.first != true %},{% endif %}"<tr><td>{{forloop.index}}</td><td>{{row['apk'] | replace: '.', ','}}</td><td><a href='https://www.systembolaget.se/produkt/{{row['url']}}/' target='_blank'><b>{{row['name'] | replace: '"', '\"'}}</b>{{' ' | append: row['subtitle'] | replace: '"', '\"'}}</a></td><td>{{row['tags'] | join: ', '}}</td><td>{{row['alcohol'] | replace: ' ', ' '}}</td><td>{{row['volume'] | replace: ' ', ' '}}</td><td>{{row['price'] | replace: '.', ',' | append: ' kr'}}</td></tr>"{% endfor %}]
 
-var tags = [{% for row in site.data.apk %}{% if forloop.first != true %},{% endif %}"{{row['tags'] | join: ','}}"{% endfor %}]
-var names = [{% for row in site.data.apk %}{% if forloop.first != true %},{% endif %}"{{row['name'] | append: ' ' | append: row['subtitle'] | downcase | replace: '"', '\"'}}"{% endfor %}]
-var volume = [{% for row in site.data.apk %}{% if forloop.first != true %},{% endif %}{{row['volume'] | remove: " ml"}}{% endfor %}]
-var price = [{% for row in site.data.apk %}{% if forloop.first != true %},{% endif %}{{row['price']}}{% endfor %}]
+let tags = [{% for row in site.data.apk %}{% if forloop.first != true %},{% endif %}"{{row['tags'] | join: ','}}"{% endfor %}]
+let names = [{% for row in site.data.apk %}{% if forloop.first != true %},{% endif %}"{{row['name'] | append: ' ' | append: row['subtitle'] | downcase | replace: '"', '\"'}}"{% endfor %}]
+let volume = [{% for row in site.data.apk %}{% if forloop.first != true %},{% endif %}{{row['volume'] | remove: " ml"}}{% endfor %}]
+let price = [{% for row in site.data.apk %}{% if forloop.first != true %},{% endif %}{{row['price']}}{% endfor %}]
 
 {% assign max_price = 0 %}
 {% for row in site.data.apk %}
@@ -21,8 +21,8 @@ for (var i = 0, ii = rows.length; i < ii; i++) {
   active.push(true)
 }
 
-var typeSearch = document.getElementById('type-search')
-var nameSearch = document.getElementById('name-search')
+let typeSearch = document.getElementById('type-search')
+let nameSearch = document.getElementById('name-search')
 
 let minVolume = document.getElementById("min-volume")
 let maxVolume = document.getElementById("max-volume")
@@ -34,7 +34,7 @@ let maxPrice = document.getElementById("max-price")
 minPrice.value = 0
 maxPrice.value = {{max_price}}
 
-var filterRows = function(rows) {
+let filterRows = (rows) => {
   var results = []
   for (var i = 0, ii = rows.length; i < ii; i++) {
     if (active[i]) {
@@ -44,13 +44,13 @@ var filterRows = function(rows) {
   return results
 }
 
-var clusterize = new Clusterize({
+let clusterize = new Clusterize({
   rows: rows,
   scrollId: 'scrollArea',
   contentId: 'contentArea'
 })
 
-var onSearch = function() {
+let onSearch = () => {
   for(var i = 0, ii = rows.length; i < ii; i++) {
     var suitable = false
     if(tags[i].includes(typeSearch.value.toLowerCase()) && names[i].includes(nameSearch.value.toLowerCase()) && volume[i] >= minVolume.value && volume[i] <= maxVolume.value && price[i] >= minPrice.value && price[i] <= maxPrice.value) {
@@ -87,6 +87,25 @@ let clearSearchBox = () => {
   priSlider.noUiSlider.set([minPrice.value, maxPrice.value])
   clusterize.update(rows)
 }
+
+
+
+let showFilter = (elem) => {
+  let elements = document.querySelectorAll(".slider-min-max, .slider")
+  if (elements[0].style.display) {
+    for (var i = 0, ii = elements.length; i < ii; i++) {
+      elements[i].style.display = ""
+    }
+    elem.value = "▲ Dölj filter"
+  } else {
+    for (var i = 0, ii = elements.length; i < ii; i++) {
+      elements[i].style.display = "none"
+    }
+    elem.value = "▼ Fler filter"
+  }
+}
+
+showFilter(document.getElementById("show-filter"))
 
 var volSlider = document.getElementById('volume-slider')
 noUiSlider.create(volSlider, {
