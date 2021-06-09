@@ -11,11 +11,10 @@ layout: compress
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="/site.webmanifest">
   <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <title>{{ site.title }}</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.18.0/clusterize.min.css"
     integrity="sha512-67r8GWGen3CmoHmvKJtZyf5xmDlPBeIGHB89/778A/L28BmcSc+AHwn/toK+nZFgwu5x9XLD/PunV4twUtkOLA=="
     crossorigin="anonymous" />
@@ -40,25 +39,25 @@ layout: compress
 
         <input class="left" type="button" id="show-filter" onclick="showFilter(this)" value="▼ Fler filter">
 
-        <div id="volume-slider" class="slider"></div>
-        <div class="left slider-min-max" id="minvol">
+        <div id="volume-slider" class="slider" style="display:none"></div>
+        <div class="left slider-min-max" id="minvol" style="display:none">
           <label for="min-volume">min</label>
           <input type="text" id="min-volume" value="0">
           <span>ml</span>
         </div>
-        <div class="right slider-min-max" id="maxvol">
+        <div class="right slider-min-max" id="maxvol" style="display:none">
           <label for="max-volume">max</label>
           <input type="text" id="max-volume" value="30000">
           <span>ml</span>
         </div>
 
-        <div id="price-slider" class="slider"></div>
-        <div class="left slider-min-max" id="minpri">
+        <div id="price-slider" class="slider" style="display:none"></div>
+        <div class="left slider-min-max" id="minpri" style="display:none">
           <label for="min-price">min</label>
           <input type="text" id="min-price">
           <span>kr</span>
         </div>
-        <div class="right slider-min-max" id="maxpri">
+        <div class="right slider-min-max" id="maxpri" style="display:none">
           <label for="max-price">max</label>
           <input type="text" id="max-price">
           <span>kr</span>

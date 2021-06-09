@@ -105,7 +105,7 @@ let showFilter = (elem) => {
   }
 }
 
-showFilter(document.getElementById("show-filter"))
+// showFilter(document.getElementById("show-filter"))
 
 var volSlider = document.getElementById('volume-slider')
 noUiSlider.create(volSlider, {
