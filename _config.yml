@@ -28,6 +28,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://alkolist.github.io/"
 locale: sv_SE
 github_username:  C4illin
+google_site_verification: 7k99U4eYzeJ8a4n0QWBnT9CM7sOwcDad7s4YBrlprI8
 social:
   name: C4illin
   links:
