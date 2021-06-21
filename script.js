@@ -2,12 +2,13 @@
 
 ---
 
-let rows = [{% for row in site.data.apk %}{% if forloop.first != true %},{% endif %}"<tr><td>{{forloop.index}}</td><td>{{row['apk'] | replace: '.', ','}}</td><td><a href='https://www.systembolaget.se/produkt/{{row['url']}}/' target='_blank'><b>{{row['name'] | replace: '"', '\"'}}</b>{{' ' | append: row['subtitle'] | replace: '"', '\"'}}</a></td><td>{{row['tags'] | join: ', '}}</td><td>{{row['alcohol'] | replace: ' ', ' '}}</td><td>{{row['volume'] | replace: ' ', ' '}}</td><td>{{row['price'] | replace: '.', ',' | append: ' kr'}}</td></tr>"{% endfor %}]
+const rows = [{% for row in site.data.apk %}{% if forloop.first != true %},{% endif %}"<tr><td>{{forloop.index}}</td><td>{{row['apk'] | replace: '.', ','}}</td><td><a href='https://www.systembolaget.se/produkt/{{row['url']}}/' target='_blank'><b>{{row['name'] | replace: '"', '\"'}}</b>{{' ' | append: row['subtitle'] | replace: '"', '\"'}}</a></td><td>{{row['tags'] | join: ', '}}</td><td>{{row['alcohol'] | replace: ' ', ' '}}</td><td>{{row['volume'] | replace: ' ', ' '}}</td><td>{{row['price'] | replace: '.', ',' | append: ' kr'}}</td></tr>"{% endfor %}]
 
-let tags = [{% for row in site.data.apk %}{% if forloop.first != true %},{% endif %}"{{row['tags'] | join: ','}}"{% endfor %}]
-let names = [{% for row in site.data.apk %}{% if forloop.first != true %},{% endif %}"{{row['name'] | append: ' ' | append: row['subtitle'] | downcase | replace: '"', '\"'}}"{% endfor %}]
-let volume = [{% for row in site.data.apk %}{% if forloop.first != true %},{% endif %}{{row['volume'] | remove: " ml"}}{% endfor %}]
-let price = [{% for row in site.data.apk %}{% if forloop.first != true %},{% endif %}{{row['price']}}{% endfor %}]
+const tags = [{% for row in site.data.apk %}{% if forloop.first != true %},{% endif %}"{{row['tags'] | join: ','}}"{% endfor %}]
+const names = [{% for row in site.data.apk %}{% if forloop.first != true %},{% endif %}"{{row['name'] | append: ' ' | append: row['subtitle'] | downcase | replace: '"', '\"'}}"{% endfor %}]
+const volume = [{% for row in site.data.apk %}{% if forloop.first != true %},{% endif %}{{row['volume'] | remove: " ml"}}{% endfor %}]
+const price = [{% for row in site.data.apk %}{% if forloop.first != true %},{% endif %}{{row['price']}}{% endfor %}]
+const alko = [{% for row in site.data.apk %}{% if forloop.first != true %},{% endif %}{{row['alcohol'] | remove: " %" | replace: ",", "."}}{% endfor %}]
 
 {% assign max_price = 0 %}
 {% for row in site.data.apk %}
@@ -34,6 +35,11 @@ let maxPrice = document.getElementById("max-price")
 minPrice.value = 0
 maxPrice.value = {{max_price}}
 
+let minalko = document.getElementById("min-alko")
+let maxalko = document.getElementById("max-alko")
+minalko.value = 0
+maxalko.value = 100
+
 let filterRows = (rows) => {
   var results = []
   for (var i = 0, ii = rows.length; i < ii; i++) {
@@ -53,7 +59,7 @@ let clusterize = new Clusterize({
 let onSearch = () => {
   for(var i = 0, ii = rows.length; i < ii; i++) {
     var suitable = false
-    if(tags[i].includes(typeSearch.value.toLowerCase()) && names[i].includes(nameSearch.value.toLowerCase()) && volume[i] >= minVolume.value && volume[i] <= maxVolume.value && price[i] >= minPrice.value && price[i] <= maxPrice.value) {
+    if(tags[i].includes(typeSearch.value.toLowerCase()) && names[i].includes(nameSearch.value.toLowerCase()) && volume[i] >= minVolume.value && volume[i] <= maxVolume.value && price[i] >= minPrice.value && price[i] <= maxPrice.value && alko[i] >= minalko.value && alko[i] <= maxalko.value) {
       suitable = true
     }
     active[i] = suitable
@@ -83,8 +89,11 @@ let clearSearchBox = () => {
   maxVolume.value = 30000
   minPrice.value = 0
   maxPrice.value = {{max_price}}
+  minalko.value = 0
+  maxalko.value = 100
   volSlider.noUiSlider.set([minVolume.value, maxVolume.value])
   priSlider.noUiSlider.set([minPrice.value, maxPrice.value])
+  alkoSlider.noUiSlider.set([minalko.value, maxalko.value])
   clusterize.update(rows)
 }
 
@@ -200,6 +209,55 @@ minPrice.addEventListener('keyup', function() {
 
 maxPrice.addEventListener('keyup', function() {
   priSlider.noUiSlider.set([minPrice.value, maxPrice.value])
+  clearTimeout(timeout)
+  timeout = setTimeout(function () {
+    onSearch()
+  }, 500)
+})
+
+
+var alkoSlider = document.getElementById('alko-slider')
+noUiSlider.create(alkoSlider, {
+  start: [0, 	100],
+  connect: true,
+  range: {
+    'min': 0,
+    '50%': 50,
+    'max': 100
+  },
+  behaviour: 'tap',
+  step: 1,
+  pips: {
+    mode: 'count',
+    density: 10,
+    values: 7,
+  },
+})
+
+
+alkoSlider.noUiSlider.on('slide.one', function () {
+  let value = alkoSlider.noUiSlider.get()
+  minalko.value = Math.round(value[0])
+  maxalko.value = Math.round(value[1])
+})
+
+alkoSlider.noUiSlider.on('change.one', function () {
+  let value = alkoSlider.noUiSlider.get()
+  minalko.value = Math.round(value[0])
+  maxalko.value = Math.round(value[1])
+  onSearch()
+})
+
+minalko.addEventListener('keyup', function() {
+  alkoSlider.noUiSlider.set([minalko.value, maxalko.value])
+  clearTimeout(timeout)
+  timeout = setTimeout(function () {
+    onSearch()
+  }, 500)
+})
+
+maxalko.addEventListener('keyup', function() {
+  alkoSlider.noUiSlider.set([minalko.value, maxalko.value])
   clearTimeout(timeout)
   timeout = setTimeout(function () {
     onSearch()

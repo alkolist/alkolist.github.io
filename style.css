@@ -21,6 +21,8 @@ main header {
   "minvol maxvol"
   "pri-slider pri-slider"
   "minpri maxpri"
+  "alko-slider alko-slider"
+  "minalko maxalko"
   "show-filter clear";
   justify-items: center;
   /* gap: 20px; */
@@ -63,6 +65,13 @@ div#minpri{
 }
 div#maxpri{
   grid-area:maxpri
+}
+
+div#minalko{
+  grid-area:minalko
+}
+div#maxalko{
+  grid-area:maxalko
 }
 
 div#scrollArea {
@@ -166,6 +175,10 @@ div#price-slider {
   grid-area: pri-slider;
 }
 
+div#alko-slider {
+  grid-area: alko-slider;
+}
+
 .left {
   justify-self: end;
 }
@@ -212,6 +225,9 @@ div label {
     "pri-slider"
     "minpri"
     "maxpri"
+    "alko-slider"
+    "minalko"
+    "maxalko"
     "clear";
   }
 
