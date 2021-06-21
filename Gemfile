@@ -16,6 +16,7 @@ group :jekyll_plugins do
   gem "jekyll-get-json"
   gem "jekyll-sitemap"
   gem "jekyll-seo-tag"
+  gem "jekyll-last-modified-at"
 end
 
 # gem "crass"

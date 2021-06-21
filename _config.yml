@@ -40,6 +40,7 @@ plugins:
   - jekyll-get-json
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll-last-modified-at
 
 jekyll_get_json:
   - data: apk
