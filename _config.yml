@@ -23,7 +23,7 @@ title: APK Systembolaget
 tagline: Jämför APK för systembolagets produkter
 email: e@mrik.ga
 description: >- # this means to ignore newlines until "baseurl:"
-  Systembolagets produkter sorterade efter APK mätt i milliliter etanol per krona.
+  Systembolagets produkter sorterade efter APK (alkohol per krona)
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://alkolist.github.io/"
 locale: sv_SE
