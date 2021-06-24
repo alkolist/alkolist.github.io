@@ -101,16 +101,14 @@ layout: compress
           {% for row in site.data.apk limit:30 %}<tr>
             <td>{{forloop.index}}</td>
             <td>{{row['apk'] | replace: '.', ','}}</td>
-            <td><b>{{row['name'] | replace: '"', '\"'}}</b>{{' ' | append: row['subtitle'] | replace: '"', '\"'}}</td>
+            <td><a href="https://www.systembolaget.se/produkt/{{row['url']}}/" target='_blank' rel='noreferrer'><b>{{row['name'] | replace: '"', '\"'}}</b>{{' ' | append: row['subtitle'] | replace: '"', '\"'}}</a></td>
             <td>{{row['tags'] | join: ', '}}</td>
             <td>{{row['alcohol'] | replace: ' ', ' '}}</td>
             <td>{{row['volume'] | replace: ' ', ' '}}</td>
             <td>{{row['price'] | replace: '.', ',' | append: ' kr'}}</td>
           </tr>{% endfor %}
-          <tr colspan="7" class="clusterize-no-data">
-            <td></td>
-            <td></td>
-            <td colspan="5" >Loading more data…</td>
+          <tr class="clusterize-no-data">
+            <td colspan="7" >Loading more data…</td>
           </tr>
         </tbody>
       </table>
