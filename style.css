@@ -13,17 +13,7 @@ main header {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
-  grid-template-areas: 
-  "h1 h1"
-  "subtitle subtitle"
-  "filter-name filter-type"
-  "vol-slider vol-slider"
-  "minvol maxvol"
-  "pri-slider pri-slider"
-  "minpri maxpri"
-  "alko-slider alko-slider"
-  "minalko maxalko"
-  "show-filter clear";
+  grid-template-areas: "h1 h1" "subtitle subtitle" "filter-name filter-type" "vol-slider vol-slider" "minvol maxvol" "pri-slider pri-slider" "minpri maxpri" "alko-slider alko-slider" "minalko maxalko" "show-filter clear";
   justify-items: center;
   /* gap: 20px; */
   margin-bottom: 20px;
@@ -40,38 +30,40 @@ h1 {
   grid-area: h1;
 }
 
-
-
 p#subtitle {
   grid-area: subtitle;
 }
 
-input#filter-name{
+input#filter-name {
   grid-area: filter-name
 }
-input#filter-type{
+
+input#filter-type {
   grid-area: filter-type
 }
 
-div#minvol{
-  grid-area:minvol
-}
-div#maxvol{
-  grid-area:maxvol
+div#minvol {
+  grid-area: minvol
 }
 
-div#minpri{
-  grid-area:minpri
-}
-div#maxpri{
-  grid-area:maxpri
+div#maxvol {
+  grid-area: maxvol
 }
 
-div#minalko{
-  grid-area:minalko
+div#minpri {
+  grid-area: minpri
 }
-div#maxalko{
-  grid-area:maxalko
+
+div#maxpri {
+  grid-area: maxpri
+}
+
+div#minalko {
+  grid-area: minalko
+}
+
+div#maxalko {
+  grid-area: maxalko
 }
 
 div#scrollArea {
@@ -171,6 +163,7 @@ div.slider {
 div#volume-slider {
   grid-area: vol-slider;
 }
+
 div#price-slider {
   grid-area: pri-slider;
 }
@@ -213,28 +206,11 @@ div label {
 @media only screen and (max-width: 760px), (min-device-width: 760px) and (max-device-width: 1024px) {
   main header {
     grid-template-columns: 1fr;
-    grid-template-areas: 
-    "h1"
-    "subtitle"
-    "filter-name"
-    "filter-type"
-    "show-filter"
-    "vol-slider"
-    "minvol"
-    "maxvol"
-    "pri-slider"
-    "minpri"
-    "maxpri"
-    "alko-slider"
-    "minalko"
-    "maxalko"
-    "clear";
+    grid-template-areas: "h1" "subtitle" "filter-name" "filter-type" "show-filter" "vol-slider" "minvol" "maxvol" "pri-slider" "minpri" "maxpri" "alko-slider" "minalko" "maxalko" "clear";
   }
-
   .left, .right {
     justify-self: center;
   }
-
   table {
     overflow: hidden;
   }
