@@ -29,6 +29,7 @@ jobs:
         with:
           default_author: github_actions
           branch: gh-pages
+          cwd: './_site'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ secrets.GITHUB_REPOSITORY }}
