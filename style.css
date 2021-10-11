@@ -85,7 +85,7 @@ td a {
   display: block;
 }
 
-footer p a {
+footer p a, header p a {
   white-space: nowrap;
   text-decoration: underline;
 }
