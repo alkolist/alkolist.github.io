@@ -72,14 +72,14 @@ typeSearch.addEventListener('keyup', function() {
   clearTimeout(timeout)
   timeout = setTimeout(function () {
     onSearch()
-  }, 500)
+  }, 350)
 })
 
 nameSearch.addEventListener('keyup', function() {
   clearTimeout(timeout)
   timeout = setTimeout(function () {
     onSearch()
-  }, 500)
+  }, 350)
 })
 
 let clearSearchBox = () => {
