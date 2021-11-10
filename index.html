@@ -1,42 +1,7 @@
 ---
 permalink:
-layout: compress
+layout: default
 ---
-
-<!DOCTYPE html>
-<html lang="sv">
-
-<head>
-  <link rel="stylesheet" href="./style.css">
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.18.0/clusterize.min.css"
-    integrity="sha512-67r8GWGen3CmoHmvKJtZyf5xmDlPBeIGHB89/778A/L28BmcSc+AHwn/toK+nZFgwu5x9XLD/PunV4twUtkOLA=="
-    crossorigin="anonymous" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/clusterize.js/0.18.0/clusterize.min.js"
-    integrity="sha512-J9kWigtolF+Ur3ozrZwj18sLPTeAFNiwLxFHaXtmjKao7MZ1g3UWnTn8y1ChS48V2JM7ErQV2r1uMeMaplN+EA=="
-    crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="nouislider.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.0.0/nouislider.min.js"
-    integrity="sha512-6vo59lZMHB6GgEySnojEnfhnugP7LR4qm6akxptNOw/KW+i9o9MK4Gaia8f/eJATjAzCkgN3CWlIHWbVi2twpg=="
-    crossorigin="anonymous"></script>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZMLWKDTR4C"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-ZMLWKDTR4C');
-  </script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7770839372633347"
-  crossorigin="anonymous"></script>
-  {% seo %}
-</head>
 
 <body id="clusterize">
   <div id="scrollArea" class="clusterize-scroll">
@@ -44,7 +9,7 @@ layout: compress
       <header>
         <h1>{{ site.title }} | APK Systembolaget</h1>
         <!-- <br>Senast uppdaterad: {{ page.last_modified_at | date: "%Y-%m-%d %H:%M" }} -->
-        <p id="subtitle">{{ site.description }}. Vilket här mäts i milliliter etanol per krona. APK stiger då dryckens pris sjunker eller alkoholhalten stiger.<br>Produkterna uppdateras allt eftersom och kan i värsta fall vara några veckor bakom systembolaget, men sidan funkar trots att systembolaget stängt ner deras API. <a href="https://github.com/C4illin/systembolaget-data">Github.</a></p>
+        <p id="subtitle">{{ site.description }}. Vilket här mäts i milliliter etanol per krona. APK stiger då dryckens pris sjunker eller alkoholhalten stiger. <a href="/about.html">Mer info</a>. <a href="https://github.com/C4illin/systembolaget-data">Github</a>.</p>
         <input class="left" type="search" id="name-search" placeholder="Filtrera namn" />
         <input class="right" type="search" id="type-search" placeholder="Filtrera typ" />
 
@@ -116,9 +81,9 @@ layout: compress
         </tbody>
       </table>
       <footer>
-        <p>Data from
+        <p>Data från
           <a href="https://github.com/C4illin/systembolaget-data">github.com/C4illin/systembolaget-data</a>
-          and source code available at
+          och källkoden finns på:
           <a href="https://github.com/alkolist/alkolist.github.io">github.com/alkolist/alkolist.github.io</a>.
           <a
             href="https://github.com/C4illin/Userscripts/raw/master/APK-Systembolaget/apk.systembolaget.user.js">Userscript</a>.
@@ -128,5 +93,3 @@ layout: compress
   </div>
   <script src="script.js"></script>
 </body>
-
-</html>
