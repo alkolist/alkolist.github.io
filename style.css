@@ -1,6 +1,14 @@
+:root {
+  --text: #ddd;
+  --background: #0D1117;
+  --background2: #181f29;
+  --border: #555;
+  --border2: #777;
+}
+
 body, main, input {
-  background-color: #0D1117;
-  color: #ddd;
+  background-color: var(--background);
+  color: var(--text);
 }
 
 html, body {
@@ -77,7 +85,7 @@ main {
 
 a {
   text-decoration: none;
-  color: #ddd;
+  color: var(--text);
   cursor: pointer;
 }
 
@@ -96,7 +104,7 @@ table {
 }
 
 td, th {
-  border: 1px solid #555;
+  border: 1px solid var(--border);
   padding: 3px;
   white-space: nowrap;
 }
@@ -106,17 +114,16 @@ td:nth-of-type(3), td:nth-of-type(4) {
 }
 
 th {
-  background-color: #555;
-  color: white;
+  background-color: var(--border);
+  color: var(--text);
 }
 
 tr:nth-child(even) {
-  background-color: #181f29;
+  background-color: var(--background2);
 }
 
 #show-filter {
   grid-area: show-filter;
-  border: 1px solid #555;
   background-color: none;
   padding: 4px;
   border-radius: 999rem;
@@ -125,7 +132,7 @@ tr:nth-child(even) {
 input {
   box-shadow: none;
   border-radius: 999rem;
-  border: 1px solid #555;
+  border: 1px solid var(--border);
   padding: 4px;
   max-width: 20rem;
   width: 80vw;
@@ -135,9 +142,9 @@ input {
 }
 
 input[type=button] {
-  border: 1px solid #ddd;
-  background-color: #ddd;
-  color: #0D1117;
+  border: 1px solid var(--border);
+  background-color: var(--background2);
+  color: var(--text);
   max-width: 10rem;
   cursor: pointer;
   grid-area: clear;
@@ -146,7 +153,7 @@ input[type=button] {
 input#name-search, input#type-search {
   font-size: 1.2em;
   padding: 6px;
-  border: 2px solid #777;
+  border: 2px solid var(--border2);
 }
 
 .slider-min-max input {
@@ -190,7 +197,7 @@ div#alko-slider {
 div span, div label {
   position: relative;
   display: inline-block;
-  color: #888;
+  color: var(--border2);
   padding-top: 3px;
   width: 0
 }
@@ -228,7 +235,7 @@ div label {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
     grid-template-areas: "place . apk" "name name name" "type type type" "alcohol volume price";
-    border-top: 1px solid #555;
+    border-top: 1px solid var(--border);
   }
   td {
     border: none;
@@ -272,5 +279,25 @@ div label {
   /* td:nth-of-type(7):before { content: "Pris: "; } */
   footer {
     margin: 30px 0;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #ddd;
+    --background: #000;
+    --background2: #111;
+    --border: #333;
+    --border2: #555;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --text: #000;
+    --background: #fff;
+    --background2: #eee;
+    --border: #bbb;
+    --border2: #999;
   }
 }

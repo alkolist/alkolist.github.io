@@ -104,9 +104,9 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
   */
 
 .noUi-target {
-  background: #0D1117;
+  background: var(--background);
   border-radius: 4px;
-  border: 1px solid #555;
+  border: 1px solid var(--border);
   /* box-shadow: inset 0 1px 1px #F0F0F0, 0 3px 6px -5px #BBB; */
 }
 
@@ -115,7 +115,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 }
 
 .noUi-connect {
-  background: #181f29;
+  background: var(--background2);
 }
 
 /* Handles and cursors;
@@ -130,15 +130,15 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 }
 
 .noUi-handle {
-  border: 1px solid #555;
+  border: 1px solid var(--border);
   border-radius: 3px;
-  background: #555;
+  background: var(--border);
   cursor: default;
   /* box-shadow: inset 0 0 1px #FFF, inset 0 1px 7px #EBEBEB, 0 3px 6px -3px #BBB; */
 }
 
 .noUi-active {
-  box-shadow: inset 0 0 1px #666, inset 0 1px 7px #444, 0 3px 6px -3px #222;
+  box-shadow: inset 0 0 1px var(--border), inset 0 1px 7px var(--border2);
 }
 
 /* Handle stripes;
@@ -150,7 +150,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
   position: absolute;
   height: 14px;
   width: 0.8px;
-  background: #0D1117;
+  background: var(--background);
   left: 14px;
   top: 6px;
 }
@@ -181,7 +181,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 
 .noUi-pips {
   position: absolute;
-  color: #999;
+  color: var(--text);
 }
 
 /* Values;
@@ -195,7 +195,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 }
 
 .noUi-value-sub {
-  color: #ccc;
+  color: var(--text);
   font-size: 10px;
 }
 
@@ -205,15 +205,15 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 
 .noUi-marker {
   position: absolute;
-  background: #999;
+  background: var(--border2);
 }
 
 .noUi-marker-sub {
-  background: #aaa;
+  background: var(--text);
 }
 
 .noUi-marker-large {
-  background: #aaa;
+  background: var(--text);
 }
 
 /* Horizontal layout;
