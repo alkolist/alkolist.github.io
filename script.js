@@ -2,13 +2,14 @@
 
 ---
 
-const rows = [{% for row in site.data.apk %}{% if forloop.first != true %},{% endif %}"<tr><td>{{forloop.index}}</td><td>{{row['apk'] | replace: '.', ','}}</td><td><a href='https://www.systembolaget.se/produkt/{{row['url']}}/' target='_blank' rel='noreferrer'><b>{{row['name'] | replace: '"', '\"'}}</b>{{' ' | append: row['subtitle'] | replace: '"', '\"'}}</a></td><td>{{row['tags'] | join: ', '}}</td><td>{{row['alcohol'] | replace: ' ', ' '}}</td><td>{{row['volume'] | replace: ' ', ' '}}</td><td>{{row['price'] | replace: '.', ',' | append: ' kr'}}</td></tr>"{% endfor %}]
+const rows = [{% for row in site.data.apk %}{% if forloop.first != true %},{% endif %}"<tr><td>{{forloop.index}}</td><td>{{-row['apk'] | replace: '.', ','-}}</td><td><a href='https://www.systembolaget.se/{{-row['productNumber']-}}/' target='_blank' rel='noreferrer'><b>{{-row['productNameBold'] | replace: '"', '\"'-}}</b>{{-' ' | append: row['productNameThin'] | replace: '"', '\"'-}}</a></td><td>{{-row['tags'] | join: ', '-}}</td><td>{{-row['alcoholPercentage'] | replace: '.', ',' | append: ' %'-}}</td><td>{{-row['volume'] | append: ' ml'-}}</td><td>{{-row['price'] | replace: '.', ',' | append: ' kr'-}}</td></tr>"{% endfor %}]
+
 
 const tags = [{% for row in site.data.apk %}{% if forloop.first != true %},{% endif %}"{{row['tags'] | join: ','}}"{% endfor %}]
-const names = [{% for row in site.data.apk %}{% if forloop.first != true %},{% endif %}"{{row['name'] | append: ' ' | append: row['subtitle'] | downcase | replace: '"', '\"'}}"{% endfor %}]
-const volume = [{% for row in site.data.apk %}{% if forloop.first != true %},{% endif %}{{row['volume'] | remove: " ml"}}{% endfor %}]
+const names = [{% for row in site.data.apk %}{% if forloop.first != true %},{% endif %}"{{row['productNameBold'] | append: ' ' | append: row['productNameThin'] | downcase | replace: '"', '\"'}}"{% endfor %}]
+const volume = [{% for row in site.data.apk %}{% if forloop.first != true %},{% endif %}{{row['volume']}}{% endfor %}]
 const price = [{% for row in site.data.apk %}{% if forloop.first != true %},{% endif %}{{row['price']}}{% endfor %}]
-const alko = [{% for row in site.data.apk %}{% if forloop.first != true %},{% endif %}{{row['alcohol'] | remove: " %" | replace: ",", "."}}{% endfor %}]
+const alko = [{% for row in site.data.apk %}{% if forloop.first != true %},{% endif %}{{row['alcoholPercentage']}}{% endfor %}]
 
 {% assign max_price = 0 %}
 {% for row in site.data.apk %}

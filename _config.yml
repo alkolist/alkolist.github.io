@@ -40,17 +40,11 @@ social:
   links:
     - https://github.com/C4illin
 
-# Build settings
-# theme: minima
 plugins:
   - jekyll-get-json
   - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-last-modified-at
-
-jekyll_get_json:
-  - data: apk
-    json: 'https://raw.githubusercontent.com/C4illin/systembolaget-data/main/apksort.json'
 
 # assets:
 #   source_maps: true
