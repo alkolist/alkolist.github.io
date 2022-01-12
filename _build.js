@@ -35,8 +35,13 @@ https.get(url,(res) => {
         return b.apk - a.apk
       })
 
-      let data = JSON.stringify(json)
-      fs.writeFileSync("_data/apk.json", data)
+      fs.writeFile("_data/apk.json", JSON.stringify(json, null, 2), (err) => {
+        if (err) {
+          console.error(err.message)
+        } else {
+          console.log("Build: Successfully wrote apk.json")
+        }
+      })
     } catch (error) {
       console.error(error.message)
     }
