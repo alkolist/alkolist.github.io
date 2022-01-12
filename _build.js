@@ -28,6 +28,11 @@ https.get(url,(res) => {
         if (json[i]["assortmentText"] == "Ordervaror"){
           json[i]["tags"].push("Ordervara")
         }
+
+        if (json[i]["isCompletelyOutOfStock"] || (json[i]["isTemporaryOutOfStock"])) {
+          json[i]["tags"].push("Slut i lager")
+        }
+
         json[i]["apk"] = Math.round((apk + Number.EPSILON) * 1000) / 1000
       }
 
