@@ -15,10 +15,7 @@ jobs:
     steps:
       - name: GitHub Checkout
         uses: actions/checkout@v1
-      - name: Node install
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
+      
       - name: Bundler Cache
         uses: actions/cache@v1
         with:
@@ -26,6 +23,11 @@ jobs:
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-gems-
+      - name: Node install
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - run: node _build.js
       - name: Build & Deploy to GitHub Pages
         uses: alkolist/jekyll4-deploy-gh-pages@master
         env:
