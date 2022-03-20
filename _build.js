@@ -1,7 +1,7 @@
 const https = require('https')
 const fs = require("fs")
 
-let url = "https://systembolaget.dcronqvist.se/v1/products"
+let url = "https://susbolaget.emrik.org/v1/products"
 
 https.get(url,(res) => {
   let body = ""
