@@ -12,6 +12,7 @@ https.get(url,(res) => {
   res.on("end", () => {
     try {
       let json = JSON.parse(body)
+      console.log("Found " + json.length + " products")
       for(let i = 0; i < json.length; i++) {
         if (json[i]["alcoholPercentage"] == null) {
           json[i]["alcoholPercentage"] = 0
