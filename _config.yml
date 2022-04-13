@@ -81,6 +81,5 @@ exclude:
   - gemfiles/
   - .jekyll-cache/
 
-include:
-  - .nojekyll
-
+# include:
+#   - .nojekyll
