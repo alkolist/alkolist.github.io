@@ -81,6 +81,7 @@ exclude:
   - vendor/ruby/
   - gemfiles/
   - .jekyll-cache/
-#   - .sass-cache/
-#   - node_modules/
+
+include:
+  - .nojekyll
 
