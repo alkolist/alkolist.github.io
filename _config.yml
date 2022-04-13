@@ -41,10 +41,9 @@ social:
     - https://github.com/C4illin
 
 plugins:
-  - jekyll-get-json
   - jekyll-sitemap
   - jekyll-seo-tag
-  - jekyll-last-modified-at
+  - jekyll-last-modified-date
 
 # assets:
 #   source_maps: true
