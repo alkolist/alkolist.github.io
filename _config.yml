@@ -43,7 +43,7 @@ social:
 plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
-  - jekyll-last-modified-date
+  - jekyll-last-modified-at
 
 # assets:
 #   source_maps: true
