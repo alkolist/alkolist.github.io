@@ -1,5 +1,6 @@
-const https = require('https')
+const https = require("https")
 const fs = require("fs")
+const core = require("@actions/core")
 
 let url = "https://susbolaget.emrik.org/v1/products"
 
@@ -11,8 +12,17 @@ https.get(url,(res) => {
 
   res.on("end", () => {
     try {
-      let json = JSON.parse(body)
+      try {
+        var json = JSON.parse(body)
+      } catch (error) {
+        core.setFailed(error.message)
+      }
+      
       console.log("Found " + json.length + " products")
+      if (json.length < 1) {
+        core.setFailed("No products found, backend is probably down")
+      }
+
       for(let i = 0; i < json.length; i++) {
         if (json[i]["alcoholPercentage"] == null) {
           json[i]["alcoholPercentage"] = 0
@@ -44,6 +54,7 @@ https.get(url,(res) => {
       fs.writeFile("_data/apk.json", JSON.stringify(json, null, 2), (err) => {
         if (err) {
           console.error(err.message)
+          core.setFailed(err.message)
         } else {
           console.log("Build: Successfully wrote apk.json")
         }

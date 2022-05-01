@@ -27,14 +27,15 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://alkolist.github.io/"
 locale: sv_SE
-github_username:  C4illin
+github_username: C4illin
+timezone: Europe/Stockholm
 author: 
   name: Emrik
   url: "https://emrik.org"
 webmaster_verifications:
   google: 7k99U4eYzeJ8a4n0QWBnT9CM7sOwcDad7s4YBrlprI8
   yandex: 507cd4fafbd9143f
-logo: icon/android-chrome-512x512.png
+logo: /icon/android-chrome-512x512.png
 social:
   name: C4illin
   links:
@@ -81,5 +82,5 @@ exclude:
   - gemfiles/
   - .jekyll-cache/
 
-# include:
-#   - .nojekyll
+include:
+  - .nojekyll
