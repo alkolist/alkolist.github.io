@@ -5,5 +5,4 @@ _site
 vendor
 old/
 /.vscode
-/node_modules
 /yarn.lock
