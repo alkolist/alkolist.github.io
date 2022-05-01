@@ -21,7 +21,7 @@
 # environment: production
 title: Alkolist
 tagline: Jämför APK för Systembolagets produkter
-email: e@mrik.ga
+email: apk@emrik.org
 description: >- # this means to ignore newlines until "baseurl:"
   Systembolagets produkter sorterade efter APK (alkohol per krona)
 baseurl: "" # the subpath of your site, e.g. /blog
