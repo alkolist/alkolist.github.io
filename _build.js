@@ -22,7 +22,7 @@ https.get(url,(res) => {
       }
       
       console.log("Found " + json.length + " products")
-      if (json.length < 1) {
+      if (json.length < 100) {
         core.setFailed("No products found, backend is probably down")
       }
 
