@@ -21,10 +21,10 @@ https.get(url,(res) => {
         core.setFailed(error.message)
       }
       
-      console.log("Found " + json.length + " products")
-      if (json.length < 100) {
+      if (!json.length || json.length < 100) {
         core.setFailed("No products found, backend is probably down")
       }
+      console.log("Found " + json.length + " products")
 
       for(let i = 0; i < json.length; i++) {
         if (json[i]["alcoholPercentage"] == null) {
@@ -57,22 +57,19 @@ https.get(url,(res) => {
         return b.apk - a.apk
       })
 
-      fs.writeFile("_data/apk.json", JSON.stringify(json, null, 2), (err) => {
-        if (err) {
-          console.error(err.message)
-          core.setFailed(err.message)
+      fs.writeFile("_data/apk.json", JSON.stringify(json, null, 2), (error) => {
+        if (error) {
+          core.setFailed(error.message)
         } else {
           console.log("Build: Successfully wrote apk.json")
         }
       })
     } catch (error) {
-      console.error(error.message)
       core.setFailed(error.message)
     }
   })
 
 }).on("error", (error) => {
-  console.error(error.message)
   core.setFailed(error.message)
 })
 
