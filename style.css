@@ -119,7 +119,7 @@ th {
   color: var(--text);
 }
 
-tr:nth-child(even) {
+tr:nth-child(odd) {
   background-color: var(--background2);
 }
 
