@@ -2,8 +2,7 @@ const https = require("https")
 const fs = require("fs")
 const core = require("@actions/core") // required to be able to fail correctly
 
-// host it yourself instead of using this
-let url = "https://susbolaget.emrik.org/v1/products"
+let url = "https://raw.githubusercontent.com/C4illin/systembolaget-data/main/products.json"
 
 // uses https instaed of fetch to bring down the amount of dependencies
 https.get(url,(res) => {
