@@ -43,9 +43,17 @@ https.get(url,(res) => {
         if (json[i]["assortmentText"] == "Ordervaror"){
           json[i]["tags"].push("Ordervara")
         }
+        
+        if (json[i]["assortmentText"] == "Webblanseringar"){
+          json[i]["tags"].push("Webblansering")
+        }
 
-        if (json[i]["isCompletelyOutOfStock"] || (json[i]["isTemporaryOutOfStock"])) {
+        if (json[i]["isCompletelyOutOfStock"] || (json[i]["isTemporaryOutOfStock"]) || (json[i]["isDiscontinued"]) || (json[i]["isSupplierTemporaryNotAvailable"])) {
           json[i]["tags"].push("Slut i lager")
+        }
+
+        if (json[i]["isNews"]){
+          json[i]["tags"].push("Nyhet")
         }
 
         // round to three decimal places
