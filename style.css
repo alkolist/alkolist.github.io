@@ -286,10 +286,10 @@ div label {
 @media (prefers-color-scheme: dark) {
   :root {
     --text: #ddd;
-    --background: #000;
-    --background2: #111;
-    --border: #333;
-    --border2: #555;
+    --background: #111;
+    --background2: #222;
+    --border: #444;
+    --border2: #666;
   }
 }
 

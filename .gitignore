@@ -6,3 +6,4 @@ vendor
 old/
 /.vscode
 /yarn.lock
+/.bundle
