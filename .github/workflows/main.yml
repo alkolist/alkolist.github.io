@@ -24,7 +24,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gems-
       - name: Node install
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '14'
       - run: node _build.js
