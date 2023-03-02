@@ -51,11 +51,23 @@ let filterRows = (rows) => {
   return results
 }
 
-let clusterize = new Clusterize({
-  rows: rows,
-  scrollId: 'scrollArea',
-  contentId: 'contentArea'
-})
+let clusterize;
+if (Clusterize) {
+  clusterize = new Clusterize({
+    rows: rows,
+    scrollId: 'scrollArea',
+    contentId: 'contentArea'
+  })
+} else {
+  document.getElementById("clusterize-script").addEventListener("load", function() {
+    console.log("Clusterize loaded")
+    clusterize = new Clusterize({
+      rows: rows,
+      scrollId: 'scrollArea',
+      contentId: 'contentArea'
+    })
+  })
+}
 
 let onSearch = () => {
   for(var i = 0, ii = rows.length; i < ii; i++) {
