@@ -71,6 +71,7 @@ exclude:
   - node_modules/
   - yarn.lock
   - package.json
+  - package-lock.json
   - README.md
   - Gemfile
   - Gemfile.lock
