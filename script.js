@@ -167,7 +167,7 @@ minVolume.addEventListener('keyup', function() {
   clearTimeout(timeout)
   timeout = setTimeout(function () {
     onSearch()
-  }, 500)
+  }, 350)
 })
 
 maxVolume.addEventListener('keyup', function() {
@@ -175,7 +175,7 @@ maxVolume.addEventListener('keyup', function() {
   clearTimeout(timeout)
   timeout = setTimeout(function () {
     onSearch()
-  }, 500)
+  }, 350)
 })
 
 var priSlider = document.getElementById('price-slider')
@@ -217,7 +217,7 @@ minPrice.addEventListener('keyup', function() {
   clearTimeout(timeout)
   timeout = setTimeout(function () {
     onSearch()
-  }, 500)
+  }, 350)
 })
 
 maxPrice.addEventListener('keyup', function() {
@@ -225,7 +225,7 @@ maxPrice.addEventListener('keyup', function() {
   clearTimeout(timeout)
   timeout = setTimeout(function () {
     onSearch()
-  }, 500)
+  }, 350)
 })
 
 
@@ -266,7 +266,7 @@ minalko.addEventListener('keyup', function() {
   clearTimeout(timeout)
   timeout = setTimeout(function () {
     onSearch()
-  }, 500)
+  }, 350)
 })
 
 maxalko.addEventListener('keyup', function() {
@@ -274,5 +274,5 @@ maxalko.addEventListener('keyup', function() {
   clearTimeout(timeout)
   timeout = setTimeout(function () {
     onSearch()
-  }, 500)
+  }, 350)
 })
