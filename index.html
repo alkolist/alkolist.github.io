@@ -65,10 +65,10 @@ layout: default
           </tr>
         </thead>
         <tbody id="contentArea" class="clusterize-content">
-          {% for row in site.data.apk limit:30 %}<tr><td>{{forloop.index}}</td><td>{{-row['apk'] | replace: '.', ','-}}</td><td><a href='https://www.systembolaget.se/{{-row['productNumber']-}}/' target='_blank' rel='noreferrer'><b>{{-row['productNameBold'] | replace: '"', '\"'-}}</b>{{-' ' | append: row['productNameThin'] | replace: '"', '\"'-}}</a></td><td>{{-row['tags'] | join: ', '-}}</td><td>{{-row['alcoholPercentage'] | replace: '.', ',' | append: ' %'-}}</td><td>{{-row['volume'] | append: ' ml'-}}</td><td>{{-row['price'] | replace: '.', ',' | append: ' kr'-}}</td></tr>
+          {% for row in site.data.apk limit:31 %}<tr><td>{{forloop.index}}</td><td>{{-row['apk'] | replace: '.', ','-}}</td><td><a href='https://www.systembolaget.se/{{-row['productNumber']-}}/' target='_blank' rel='noreferrer'><b>{{-row['productNameBold'] | replace: '"', '\"'-}}</b>{{-' ' | append: row['productNameThin'] | replace: '"', '\"'-}}</a></td><td>{{-row['tags'] | join: ', '-}}</td><td>{{-row['alcoholPercentage'] | replace: '.', ',' | append: ' %'-}}</td><td>{{-row['volume'] | append: ' ml'-}}</td><td>{{-row['price'] | replace: '.', ',' | append: ' kr'-}}</td></tr>
           {% endfor %}
           <tr class="clusterize-no-data">
-            <td colspan="7" >Loading more data…</td>
+            <td colspan="7" >Laddar mer data…</td>
           </tr>
         </tbody>
       </table>
