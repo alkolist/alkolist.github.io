@@ -64,7 +64,8 @@ if (Clusterize) {
     clusterize = new Clusterize({
       rows: rows,
       scrollId: 'scrollArea',
-      contentId: 'contentArea'
+      contentId: 'contentArea',
+      no_data_text: 'Inga resultat'
     })
   })
 }
