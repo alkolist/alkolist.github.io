@@ -114,14 +114,26 @@ const onSearch = () => {
   clusterize.update(filterRows(rows))
 }
 
-typeSearch.addEventListener('keyup', function() {
+typeSearch.addEventListener('search', function() {
+  typeSearch.blur()
+  clearTimeout(timeout)
+  onSearch()
+})
+
+typeSearch.addEventListener('input', function() {
   clearTimeout(timeout)
   timeout = setTimeout(function () {
     onSearch()
   }, 250)
 })
 
-nameSearch.addEventListener('keyup', function() {
+nameSearch.addEventListener('search', function () {
+  nameSearch.blur()
+  clearTimeout(timeout)
+  onSearch()
+})
+
+nameSearch.addEventListener('input', function() {
   clearTimeout(timeout)
   timeout = setTimeout(function () {
     onSearch()
