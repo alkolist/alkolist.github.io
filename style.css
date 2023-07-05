@@ -222,7 +222,7 @@ div label {
 @media only screen and (max-width: 760px), (min-device-width: 760px) and (max-device-width: 1024px) {
   main header {
     grid-template-columns: 1fr;
-    grid-template-areas: "h1" "subtitle" "filter-name" "filter-type" "show-filter" "vol-slider" "minvol" "maxvol" "pri-slider" "minpri" "maxpri" "alko-slider" "minalko" "maxalko" "clear";
+    grid-template-areas: "h1" "subtitle" "filter-name" "filter-type" "hide-ordervara" "hide-outofstock" "show-filter" "vol-slider" "minvol" "maxvol" "pri-slider" "minpri" "maxpri" "alko-slider" "minalko" "maxalko" "clear";
   }
   .left, .right {
     justify-self: center;
