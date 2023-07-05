@@ -8,9 +8,12 @@ layout: default
     <main>
       <header>
         <h1>{{ site.title }} | APK Systembolaget</h1>
-        <p id="subtitle">{{ site.description }}. Vilket här mäts i milliliter etanol per krona. <a href="/about">Mer info</a>. <a href="https://github.com/alkolist/alkolist.github.io">Källkod</a>. Senast uppdaterad: {{ site.time | date: "%Y-%m-%d %H:%M" }}</p>
+        <p id="subtitle">{{ site.description }}. Vilket här mäts i milliliter etanol per krona. <a href="/about">Mer info</a>. <a href="https://github.com/alkolist/alkolist.github.io">Källkod</a>. Senast uppdaterad: {{ site.time | date: "%Y-%m-%d %H:%M" }}. Tips filtrera efter typ "nyhet" för att se de senaste produkterna.</p>
         <input class="left" type="search" id="name-search" placeholder="Filtrera namn" />
         <input class="right" type="search" id="type-search" placeholder="Filtrera typ" />
+
+        <input class="left" type="button" id="hide-ordervara" onclick="hideOrdervara(this)" value="Dölj Ordervara">
+        <input class="right" type="button" id="hide-outofstock" onclick="hideOutOfStock(this)" value="Dölj Slut i lager">
 
         <input class="left" type="button" id="show-filter" onclick="showFilter(this)" value="▼ Fler filter">
 

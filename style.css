@@ -21,7 +21,7 @@ main header {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
-  grid-template-areas: "h1 h1" "subtitle subtitle" "filter-name filter-type" "vol-slider vol-slider" "minvol maxvol" "pri-slider pri-slider" "minpri maxpri" "alko-slider alko-slider" "minalko maxalko" "show-filter clear";
+  grid-template-areas: "h1 h1" "subtitle subtitle" "filter-name filter-type" "hide-ordervara hide-outofstock" "vol-slider vol-slider" "minvol maxvol" "pri-slider pri-slider" "minpri maxpri" "alko-slider alko-slider" "minalko maxalko" "show-filter clear";
   justify-items: center;
   /* gap: 20px; */
   margin-bottom: 20px;
@@ -43,12 +43,20 @@ p#subtitle {
   grid-area: subtitle;
 }
 
-input#filter-name {
+input#name-search {
   grid-area: filter-name
 }
 
-input#filter-type {
+input#type-search {
   grid-area: filter-type
+}
+
+input#hide-ordervara {
+  grid-area: hide-ordervara
+}
+
+input#hide-outofstock {
+  grid-area: hide-outofstock
 }
 
 div#minvol {

@@ -41,7 +41,7 @@ let maxalko = document.getElementById("max-alko")
 minalko.value = 0
 maxalko.value = 100
 
-let filterRows = (rows) => {
+const filterRows = (rows) => {
   var results = []
   for (var i = 0, ii = rows.length; i < ii; i++) {
     if (active[i]) {
@@ -49,6 +49,39 @@ let filterRows = (rows) => {
     }
   }
   return results
+}
+
+let hideOrdervaraBool = false
+let timeout = null
+const hideOrdervara = (elem) => {
+  if (elem.value == "Dölj Ordervara") {
+    hideOrdervaraBool = true
+    elem.value = "Visa Ordervara"
+  } else {
+    hideOrdervaraBool = false
+    elem.value = "Dölj Ordervara"
+  }
+
+  clearTimeout(timeout)
+  timeout = setTimeout(function () {
+    onSearch()
+  }, 250)
+}
+
+let hideOutOfStockBool = false
+const hideOutOfStock = (elem) => {
+  if (elem.value == "Dölj Slut i lager") {
+    hideOutOfStockBool = true
+    elem.value = "Visa Slut i lager"
+  } else {
+    hideOutOfStockBool = false
+    elem.value = "Dölj Slut i lager"
+  }
+
+  clearTimeout(timeout)
+  timeout = setTimeout(function () {
+    onSearch()
+  }, 250)
 }
 
 let clusterize;
@@ -70,10 +103,10 @@ if (Clusterize) {
   })
 }
 
-let onSearch = () => {
-  for(var i = 0, ii = rows.length; i < ii; i++) {
-    var suitable = false
-    if(tags[i].includes(typeSearch.value.toLowerCase()) && names[i].includes(nameSearch.value.toLowerCase()) && volume[i] >= minVolume.value && volume[i] <= maxVolume.value && price[i] >= minPrice.value && price[i] <= maxPrice.value && alko[i] >= minalko.value && alko[i] <= maxalko.value) {
+const onSearch = () => {
+  for(let i = 0, ii = rows.length; i < ii; i++) {
+    let suitable = false
+    if (tags[i].includes(typeSearch.value.toLowerCase()) && names[i].includes(nameSearch.value.toLowerCase()) && volume[i] >= minVolume.value && volume[i] <= maxVolume.value && price[i] >= minPrice.value && price[i] <= maxPrice.value && alko[i] >= minalko.value && alko[i] <= maxalko.value && (hideOrdervaraBool == false || tags[i].includes("ordervara") == false) && (hideOutOfStockBool == false || tags[i].includes("slut i lager") == false)) {
       suitable = true
     }
     active[i] = suitable
@@ -81,7 +114,6 @@ let onSearch = () => {
   clusterize.update(filterRows(rows))
 }
 
-let timeout = null
 typeSearch.addEventListener('keyup', function() {
   clearTimeout(timeout)
   timeout = setTimeout(function () {
@@ -96,7 +128,7 @@ nameSearch.addEventListener('keyup', function() {
   }, 250)
 })
 
-let clearSearchBox = () => {
+const clearSearchBox = () => {
   typeSearch.value = ""
   nameSearch.value = ""
   minVolume.value = 0
@@ -113,7 +145,7 @@ let clearSearchBox = () => {
 
 
 
-let showFilter = (elem) => {
+const showFilter = (elem) => {
   let elements = document.querySelectorAll(".slider-min-max, .slider")
   if (elements[0].style.display) {
     for (var i = 0, ii = elements.length; i < ii; i++) {
@@ -130,7 +162,7 @@ let showFilter = (elem) => {
 
 // showFilter(document.getElementById("show-filter"))
 
-var volSlider = document.getElementById('volume-slider')
+const volSlider = document.getElementById('volume-slider')
 noUiSlider.create(volSlider, {
   start: [0, 	30000],
   connect: true,
@@ -179,7 +211,7 @@ maxVolume.addEventListener('keyup', function() {
   }, 350)
 })
 
-var priSlider = document.getElementById('price-slider')
+const priSlider = document.getElementById('price-slider')
 noUiSlider.create(priSlider, {
   start: [0, 	{{max_price}}],
   connect: true,
@@ -230,7 +262,7 @@ maxPrice.addEventListener('keyup', function() {
 })
 
 
-var alkoSlider = document.getElementById('alko-slider')
+const alkoSlider = document.getElementById('alko-slider')
 noUiSlider.create(alkoSlider, {
   start: [0, 	100],
   connect: true,
