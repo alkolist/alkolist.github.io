@@ -25,7 +25,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gems-
       - name: Node install
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
       - run: node _build.js
       - name: Build & Deploy to GitHub Pages
         uses: alkolist/jekyll4-deploy-gh-pages@master
