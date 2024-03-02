@@ -16,7 +16,6 @@ jobs:
     steps:
       - name: GitHub Checkout
         uses: actions/checkout@v4
-      
       - name: Bundler Cache
         uses: actions/cache@v4
         with:
