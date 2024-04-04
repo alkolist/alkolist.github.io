@@ -77,7 +77,7 @@ https
 
 				fs.writeFile(
 					"_data/apk.json",
-					JSON.stringify(json, null, 2),
+					JSON.stringify(json, null, 0),
 					(error) => {
 						if (error) {
 							core.setFailed(error.message);
