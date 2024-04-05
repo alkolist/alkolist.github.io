@@ -23,27 +23,27 @@ for (var i = 0, ii = rows.length; i < ii; i++) {
   active.push(true)
 }
 
-let typeSearch = document.getElementById('type-search')
-let nameSearch = document.getElementById('name-search')
+const typeSearch = document.getElementById('type-search')
+const nameSearch = document.getElementById('name-search')
 
-let minVolume = document.getElementById("min-volume")
-let maxVolume = document.getElementById("max-volume")
+const minVolume = document.getElementById("min-volume")
+const maxVolume = document.getElementById("max-volume")
 minVolume.value = 0
 maxVolume.value = 30000
 
-let minPrice = document.getElementById("min-price")
-let maxPrice = document.getElementById("max-price")
+const minPrice = document.getElementById("min-price")
+const maxPrice = document.getElementById("max-price")
 minPrice.value = 0
 maxPrice.value = {{max_price}}
 
-let minalko = document.getElementById("min-alko")
-let maxalko = document.getElementById("max-alko")
+const minalko = document.getElementById("min-alko")
+const maxalko = document.getElementById("max-alko")
 minalko.value = 0
 maxalko.value = 100
 
 const filterRows = (rows) => {
-  var results = []
-  for (var i = 0, ii = rows.length; i < ii; i++) {
+  const results = []
+  for (let i = 0, ii = rows.length; i < ii; i++) {
     if (active[i]) {
       results.push(rows[i])
     }
@@ -63,14 +63,14 @@ const hideOrdervara = (elem) => {
   }
 
   clearTimeout(timeout)
-  timeout = setTimeout(function () {
+  timeout = setTimeout(() => {
     onSearch()
   }, 250)
 }
 
 let hideOutOfStockBool = false
 const hideOutOfStock = (elem) => {
-  if (elem.value == "Dölj Slut i lager") {
+  if (elem.value === "Dölj Slut i lager") {
     hideOutOfStockBool = true
     elem.value = "Visa Slut i lager"
   } else {
@@ -79,7 +79,7 @@ const hideOutOfStock = (elem) => {
   }
 
   clearTimeout(timeout)
-  timeout = setTimeout(function () {
+  timeout = setTimeout(() => {
     onSearch()
   }, 250)
 }
@@ -92,7 +92,7 @@ if (Clusterize) {
     contentId: 'contentArea'
   })
 } else {
-  document.getElementById("clusterize-script").addEventListener("load", function() {
+  document.getElementById("clusterize-script").addEventListener("load", () => {
     console.log("Clusterize loaded")
     clusterize = new Clusterize({
       rows: rows,
@@ -106,7 +106,7 @@ if (Clusterize) {
 const onSearch = () => {
   for(let i = 0, ii = rows.length; i < ii; i++) {
     let suitable = false
-    if (tags[i].includes(typeSearch.value.toLowerCase()) && names[i].includes(nameSearch.value.toLowerCase()) && volume[i] >= minVolume.value && volume[i] <= maxVolume.value && price[i] >= minPrice.value && price[i] <= maxPrice.value && alko[i] >= minalko.value && alko[i] <= maxalko.value && (hideOrdervaraBool == false || tags[i].includes("ordervara") == false) && (hideOutOfStockBool == false || tags[i].includes("slut i lager") == false)) {
+    if (tags[i].includes(typeSearch.value.toLowerCase()) && names[i].includes(nameSearch.value.toLowerCase()) && volume[i] >= minVolume.value && volume[i] <= maxVolume.value && price[i] >= minPrice.value && price[i] <= maxPrice.value && alko[i] >= minalko.value && alko[i] <= maxalko.value && (hideOrdervaraBool === false || tags[i].includes("ordervara") === false) && (hideOutOfStockBool === false || tags[i].includes("slut i lager") === false)) {
       suitable = true
     }
     active[i] = suitable
@@ -114,31 +114,197 @@ const onSearch = () => {
   clusterize.update(filterRows(rows))
 }
 
-typeSearch.addEventListener('search', function() {
+typeSearch.addEventListener('search', () => {
   typeSearch.blur()
   clearTimeout(timeout)
   onSearch()
 })
 
-typeSearch.addEventListener('input', function() {
+typeSearch.addEventListener('input', () => {
   clearTimeout(timeout)
-  timeout = setTimeout(function () {
+  timeout = setTimeout(() => {
     onSearch()
   }, 250)
 })
 
-nameSearch.addEventListener('search', function () {
+nameSearch.addEventListener('search', () => {
   nameSearch.blur()
   clearTimeout(timeout)
   onSearch()
 })
 
-nameSearch.addEventListener('input', function() {
+nameSearch.addEventListener('input', () => {
   clearTimeout(timeout)
-  timeout = setTimeout(function () {
+  timeout = setTimeout(() => {
     onSearch()
   }, 250)
 })
+
+const showFilter = (elem) => {
+  const elements = document.querySelectorAll(".slider-min-max, .slider")
+  if (elements[0].style.display) {
+    for (let i = 0, ii = elements.length; i < ii; i++) {
+      elements[i].style.display = ""
+    }
+    elem.value = "▲ Dölj filter"
+  } else {
+    for (let i = 0, ii = elements.length; i < ii; i++) {
+      elements[i].style.display = "none"
+    }
+    elem.value = "▼ Fler filter"
+  }
+}
+
+// showFilter(document.getElementById("show-filter"))
+
+const volSlider = document.getElementById('volume-slider')
+noUiSlider.create(volSlider, {
+  start: [0, 	30000],
+  connect: true,
+  range: {
+    min: 0,
+    '50%': 1500,
+    '66.67%': 3000,
+    '83.333%': 6000,
+    max: 30000
+  },
+  behaviour: 'tap',
+  step: 1,
+  pips: {
+    mode: 'count',
+    density: 10,
+    values: 7,
+  },
+})
+
+volSlider.noUiSlider.on('slide.one', () => {
+  const value = volSlider.noUiSlider.get()
+  minVolume.value = Math.round(value[0])
+  maxVolume.value = Math.round(value[1])
+})
+
+volSlider.noUiSlider.on('change.one', () => {
+  const value = volSlider.noUiSlider.get()
+  minVolume.value = Math.round(value[0])
+  maxVolume.value = Math.round(value[1])
+  onSearch()
+})
+
+minVolume.addEventListener('keyup', () => {
+  volSlider.noUiSlider.set([minVolume.value, maxVolume.value])
+  clearTimeout(timeout)
+  timeout = setTimeout(() => {
+    onSearch()
+  }, 350)
+})
+
+maxVolume.addEventListener('keyup', () => {
+  volSlider.noUiSlider.set([minVolume.value, maxVolume.value])
+  clearTimeout(timeout)
+  timeout = setTimeout(() => {
+    onSearch()
+  }, 350)
+})
+
+const priSlider = document.getElementById('price-slider')
+noUiSlider.create(priSlider, {
+  start: [0, 	{{max_price}}],
+  connect: true,
+  range: {
+    min: 0,
+    '50%': 150,
+    '66.67%': 300,
+    '83.33333%': 1000,
+    max: {{max_price}}
+  },
+  behaviour: 'tap',
+  step: 1,
+  pips: {
+    mode: 'count',
+    density: 10,
+    values: 7,
+  },
+})
+
+
+priSlider.noUiSlider.on('slide.one', () => {
+  const value = priSlider.noUiSlider.get()
+  minPrice.value = Math.round(value[0])
+  maxPrice.value = Math.round(value[1])
+})
+
+priSlider.noUiSlider.on('change.one', () => {
+  const value = priSlider.noUiSlider.get()
+  minPrice.value = Math.round(value[0])
+  maxPrice.value = Math.round(value[1])
+  onSearch()
+})
+
+minPrice.addEventListener('keyup', () => {
+  priSlider.noUiSlider.set([minPrice.value, maxPrice.value])
+  clearTimeout(timeout)
+  timeout = setTimeout(() => {
+    onSearch()
+  }, 350)
+})
+
+maxPrice.addEventListener('keyup', () => {
+  priSlider.noUiSlider.set([minPrice.value, maxPrice.value])
+  clearTimeout(timeout)
+  timeout = setTimeout(() => {
+    onSearch()
+  }, 350)
+})
+
+
+const alkoSlider = document.getElementById('alko-slider')
+noUiSlider.create(alkoSlider, {
+  start: [0, 	100],
+  connect: true,
+  range: {
+    min: 0,
+    '50%': 50,
+    max: 100
+  },
+  behaviour: 'tap',
+  step: 1,
+  pips: {
+    mode: 'count',
+    density: 10,
+    values: 7,
+  },
+})
+
+
+alkoSlider.noUiSlider.on('slide.one', () => {
+  const value = alkoSlider.noUiSlider.get()
+  minalko.value = Math.round(value[0])
+  maxalko.value = Math.round(value[1])
+})
+
+alkoSlider.noUiSlider.on('change.one', () => {
+  const value = alkoSlider.noUiSlider.get()
+  minalko.value = Math.round(value[0])
+  maxalko.value = Math.round(value[1])
+  onSearch()
+})
+
+minalko.addEventListener('keyup', () => {
+  alkoSlider.noUiSlider.set([minalko.value, maxalko.value])
+  clearTimeout(timeout)
+  timeout = setTimeout(() => {
+    onSearch()
+  }, 350)
+})
+
+maxalko.addEventListener('keyup', () => {
+  alkoSlider.noUiSlider.set([minalko.value, maxalko.value])
+  clearTimeout(timeout)
+  timeout = setTimeout(() => {
+    onSearch()
+  }, 350)
+})
+
 
 const clearSearchBox = () => {
   typeSearch.value = ""
@@ -154,170 +320,3 @@ const clearSearchBox = () => {
   alkoSlider.noUiSlider.set([minalko.value, maxalko.value])
   clusterize.update(rows)
 }
-
-
-
-const showFilter = (elem) => {
-  let elements = document.querySelectorAll(".slider-min-max, .slider")
-  if (elements[0].style.display) {
-    for (var i = 0, ii = elements.length; i < ii; i++) {
-      elements[i].style.display = ""
-    }
-    elem.value = "▲ Dölj filter"
-  } else {
-    for (var i = 0, ii = elements.length; i < ii; i++) {
-      elements[i].style.display = "none"
-    }
-    elem.value = "▼ Fler filter"
-  }
-}
-
-// showFilter(document.getElementById("show-filter"))
-
-const volSlider = document.getElementById('volume-slider')
-noUiSlider.create(volSlider, {
-  start: [0, 	30000],
-  connect: true,
-  range: {
-    'min': 0,
-    '50%': 1500,
-    '66.67%': 3000,
-    '83.333%': 6000,
-    'max': 30000
-  },
-  behaviour: 'tap',
-  step: 1,
-  pips: {
-    mode: 'count',
-    density: 10,
-    values: 7,
-  },
-})
-
-volSlider.noUiSlider.on('slide.one', function () {
-  let value = volSlider.noUiSlider.get()
-  minVolume.value = Math.round(value[0])
-  maxVolume.value = Math.round(value[1])
-})
-
-volSlider.noUiSlider.on('change.one', function () {
-  let value = volSlider.noUiSlider.get()
-  minVolume.value = Math.round(value[0])
-  maxVolume.value = Math.round(value[1])
-  onSearch()
-})
-
-minVolume.addEventListener('keyup', function() {
-  volSlider.noUiSlider.set([minVolume.value, maxVolume.value])
-  clearTimeout(timeout)
-  timeout = setTimeout(function () {
-    onSearch()
-  }, 350)
-})
-
-maxVolume.addEventListener('keyup', function() {
-  volSlider.noUiSlider.set([minVolume.value, maxVolume.value])
-  clearTimeout(timeout)
-  timeout = setTimeout(function () {
-    onSearch()
-  }, 350)
-})
-
-const priSlider = document.getElementById('price-slider')
-noUiSlider.create(priSlider, {
-  start: [0, 	{{max_price}}],
-  connect: true,
-  range: {
-    'min': 0,
-    '50%': 150,
-    '66.67%': 300,
-    '83.33333%': 1000,
-    'max': {{max_price}}
-  },
-  behaviour: 'tap',
-  step: 1,
-  pips: {
-    mode: 'count',
-    density: 10,
-    values: 7,
-  },
-})
-
-
-priSlider.noUiSlider.on('slide.one', function () {
-  let value = priSlider.noUiSlider.get()
-  minPrice.value = Math.round(value[0])
-  maxPrice.value = Math.round(value[1])
-})
-
-priSlider.noUiSlider.on('change.one', function () {
-  let value = priSlider.noUiSlider.get()
-  minPrice.value = Math.round(value[0])
-  maxPrice.value = Math.round(value[1])
-  onSearch()
-})
-
-minPrice.addEventListener('keyup', function() {
-  priSlider.noUiSlider.set([minPrice.value, maxPrice.value])
-  clearTimeout(timeout)
-  timeout = setTimeout(function () {
-    onSearch()
-  }, 350)
-})
-
-maxPrice.addEventListener('keyup', function() {
-  priSlider.noUiSlider.set([minPrice.value, maxPrice.value])
-  clearTimeout(timeout)
-  timeout = setTimeout(function () {
-    onSearch()
-  }, 350)
-})
-
-
-const alkoSlider = document.getElementById('alko-slider')
-noUiSlider.create(alkoSlider, {
-  start: [0, 	100],
-  connect: true,
-  range: {
-    'min': 0,
-    '50%': 50,
-    'max': 100
-  },
-  behaviour: 'tap',
-  step: 1,
-  pips: {
-    mode: 'count',
-    density: 10,
-    values: 7,
-  },
-})
-
-
-alkoSlider.noUiSlider.on('slide.one', function () {
-  let value = alkoSlider.noUiSlider.get()
-  minalko.value = Math.round(value[0])
-  maxalko.value = Math.round(value[1])
-})
-
-alkoSlider.noUiSlider.on('change.one', function () {
-  let value = alkoSlider.noUiSlider.get()
-  minalko.value = Math.round(value[0])
-  maxalko.value = Math.round(value[1])
-  onSearch()
-})
-
-minalko.addEventListener('keyup', function() {
-  alkoSlider.noUiSlider.set([minalko.value, maxalko.value])
-  clearTimeout(timeout)
-  timeout = setTimeout(function () {
-    onSearch()
-  }, 350)
-})
-
-maxalko.addEventListener('keyup', function() {
-  alkoSlider.noUiSlider.set([minalko.value, maxalko.value])
-  clearTimeout(timeout)
-  timeout = setTimeout(function () {
-    onSearch()
-  }, 350)
-})

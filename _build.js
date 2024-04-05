@@ -1,5 +1,6 @@
 const https = require("node:https");
 const fs = require("node:fs");
+const yaml = require("js-yaml");
 const core = require("@actions/core"); // required to be able to fail correctly
 
 const url = "https://susbolaget.emrik.org/v1/products";
@@ -57,11 +58,8 @@ https
 						json[i].tags.push("Webblansering");
 					}
 
-					if (
-						json[i].isCompletelyOutOfStock ||
-						json[i].isTemporaryOutOfStock ||
-						json[i].isDiscontinued
-					) {
+					// json[i].isTemporaryOutOfStock ||
+					if (json[i].isCompletelyOutOfStock || json[i].isDiscontinued) {
 						json[i].tags.push("Slut i lager");
 					}
 
@@ -75,17 +73,13 @@ https
 
 				json.sort((a, b) => b.apk - a.apk);
 
-				fs.writeFile(
-					"_data/apk.json",
-					JSON.stringify(json, null, 0),
-					(error) => {
-						if (error) {
-							core.setFailed(error.message);
-						} else {
-							console.log("Build: Successfully wrote apk.json");
-						}
-					},
-				);
+				fs.writeFile("_data/apk.yaml", yaml.dump(json), (error) => {
+					if (error) {
+						core.setFailed(error.message);
+					} else {
+						console.log("Build: Successfully wrote apk.yaml");
+					}
+				});
 			} catch (error) {
 				core.setFailed(error.message);
 			}
