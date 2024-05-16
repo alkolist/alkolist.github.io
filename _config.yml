@@ -83,4 +83,6 @@ exclude:
   - gemfiles/
   - .jekyll-cache/
 
-include: [".well-known"]
+include: 
+  - ".well-known"
+  - ".nojekyll"
