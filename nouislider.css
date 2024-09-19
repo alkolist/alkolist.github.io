@@ -4,202 +4,202 @@
  */
 .noUi-target,
 .noUi-target * {
-  -webkit-touch-callout: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  -webkit-user-select: none;
-  -ms-touch-action: none;
-  touch-action: none;
-  -ms-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+	-webkit-touch-callout: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-user-select: none;
+	-ms-touch-action: none;
+	touch-action: none;
+	-ms-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .noUi-target {
-  position: relative;
+	position: relative;
 }
 
 .noUi-base,
 .noUi-connects {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  z-index: 1;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	z-index: 1;
 }
 
 /* Wrapper for all connect elements.
   */
 .noUi-connects {
-  overflow: hidden;
-  z-index: 0;
+	overflow: hidden;
+	z-index: 0;
 }
 
 .noUi-connect,
 .noUi-origin {
-  will-change: transform;
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  -ms-transform-origin: 0 0;
-  -webkit-transform-origin: 0 0;
-  -webkit-transform-style: preserve-3d;
-  transform-origin: 0 0;
-  transform-style: flat;
+	will-change: transform;
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+	-ms-transform-origin: 0 0;
+	-webkit-transform-origin: 0 0;
+	-webkit-transform-style: preserve-3d;
+	transform-origin: 0 0;
+	transform-style: flat;
 }
 
 /* Offset direction
   */
 .noUi-txt-dir-rtl.noUi-horizontal .noUi-origin {
-  left: 0;
-  right: auto;
+	left: 0;
+	right: auto;
 }
 
 /* Give origins 0 height/width so they don't interfere with clicking the
   * connect elements.
   */
 .noUi-vertical .noUi-origin {
-  top: -100%;
-  width: 0;
+	top: -100%;
+	width: 0;
 }
 
 .noUi-horizontal .noUi-origin {
-  height: 0;
+	height: 0;
 }
 
 .noUi-handle {
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  position: absolute;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	position: absolute;
 }
 
 .noUi-touch-area {
-  height: 100%;
-  width: 100%;
+	height: 100%;
+	width: 100%;
 }
 
 .noUi-state-tap .noUi-connect,
 .noUi-state-tap .noUi-origin {
-  -webkit-transition: transform 0.3s;
-  transition: transform 0.3s;
+	-webkit-transition: transform 0.3s;
+	transition: transform 0.3s;
 }
 
 .noUi-state-drag * {
-  cursor: inherit !important;
+	cursor: inherit !important;
 }
 
 /* Slider size and handle placement;
   */
 .noUi-horizontal {
-  height: 18px;
+	height: 18px;
 }
 
 .noUi-horizontal .noUi-handle {
-  width: 34px;
-  height: 28px;
-  right: -17px;
-  top: -6px;
+	width: 34px;
+	height: 28px;
+	right: -17px;
+	top: -6px;
 }
 
 .noUi-vertical {
-  width: 18px;
+	width: 18px;
 }
 
 .noUi-vertical .noUi-handle {
-  width: 28px;
-  height: 34px;
-  right: -6px;
-  bottom: -17px;
+	width: 28px;
+	height: 34px;
+	right: -6px;
+	bottom: -17px;
 }
 
 .noUi-txt-dir-rtl.noUi-horizontal .noUi-handle {
-  left: -17px;
-  right: auto;
+	left: -17px;
+	right: auto;
 }
 
 /* Styling;
   * Giving the connect element a border radius causes issues with using transform: scale
   */
 .noUi-target {
-  background: var(--background);
-  border-radius: 4px;
-  border: 1px solid var(--border);
-  /* box-shadow: inset 0 1px 1px #F0F0F0, 0 3px 6px -5px #BBB; */
+	background: var(--background);
+	border-radius: 4px;
+	border: 1px solid var(--border);
+	/* box-shadow: inset 0 1px 1px #F0F0F0, 0 3px 6px -5px #BBB; */
 }
 
 .noUi-connects {
-  border-radius: 3px;
+	border-radius: 3px;
 }
 
 .noUi-connect {
-  background: var(--background2);
+	background: var(--background2);
 }
 
 /* Handles and cursors;
   */
 .noUi-draggable {
-  cursor: ew-resize;
+	cursor: ew-resize;
 }
 
 .noUi-vertical .noUi-draggable {
-  cursor: ns-resize;
+	cursor: ns-resize;
 }
 
 .noUi-handle {
-  border: 1px solid var(--border);
-  border-radius: 3px;
-  background: var(--border);
-  cursor: default;
-  /* box-shadow: inset 0 0 1px #FFF, inset 0 1px 7px #EBEBEB, 0 3px 6px -3px #BBB; */
+	border: 1px solid var(--border);
+	border-radius: 3px;
+	background: var(--border);
+	cursor: default;
+	/* box-shadow: inset 0 0 1px #FFF, inset 0 1px 7px #EBEBEB, 0 3px 6px -3px #BBB; */
 }
 
 .noUi-active {
-  box-shadow: inset 0 0 1px var(--border), inset 0 1px 7px var(--border2);
+	box-shadow: inset 0 0 1px var(--border), inset 0 1px 7px var(--border2);
 }
 
 /* Handle stripes;
   */
 .noUi-handle:before,
 .noUi-handle:after {
-  content: "";
-  display: block;
-  position: absolute;
-  height: 14px;
-  width: 0.8px;
-  background: var(--background);
-  left: 14px;
-  top: 6px;
+	content: "";
+	display: block;
+	position: absolute;
+	height: 14px;
+	width: 0.8px;
+	background: var(--background);
+	left: 14px;
+	top: 6px;
 }
 
 .noUi-handle:after {
-  left: 17px;
+	left: 17px;
 }
 
 .noUi-vertical .noUi-handle:before,
 .noUi-vertical .noUi-handle:after {
-  width: 14px;
-  height: 1px;
-  left: 6px;
-  top: 14px;
+	width: 14px;
+	height: 1px;
+	left: 6px;
+	top: 14px;
 }
 
 .noUi-vertical .noUi-handle:after {
-  top: 17px;
+	top: 17px;
 }
 
 /* Disabled state;
   */
 [disabled] .noUi-connect {
-  background: #b8b8b8;
+	background: #b8b8b8;
 }
 
 [disabled].noUi-target,
 [disabled].noUi-handle,
 [disabled] .noUi-handle {
-  cursor: not-allowed;
+	cursor: not-allowed;
 }
 
 /* Base;
@@ -207,76 +207,76 @@
   */
 .noUi-pips,
 .noUi-pips * {
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .noUi-pips {
-  position: absolute;
-  color: var(--text);
+	position: absolute;
+	color: var(--text);
 }
 
 /* Values;
   *
   */
 .noUi-value {
-  position: absolute;
-  white-space: nowrap;
-  text-align: center;
+	position: absolute;
+	white-space: nowrap;
+	text-align: center;
 }
 
 .noUi-value-sub {
-  color: var(--text);
-  font-size: 10px;
+	color: var(--text);
+	font-size: 10px;
 }
 
 /* Markings;
   *
   */
 .noUi-marker {
-  position: absolute;
-  background: var(--border2);
+	position: absolute;
+	background: var(--border2);
 }
 
 .noUi-marker-sub {
-  background: var(--text);
+	background: var(--text);
 }
 
 .noUi-marker-large {
-  background: var(--text);
+	background: var(--text);
 }
 
 /* Horizontal layout;
   *
   */
 .noUi-pips-horizontal {
-  padding: 10px 0;
-  height: 80px;
-  top: 100%;
-  left: 0;
-  width: 100%;
+	padding: 10px 0;
+	height: 80px;
+	top: 100%;
+	left: 0;
+	width: 100%;
 }
 
 .noUi-value-horizontal {
-  -webkit-transform: translate(-50%, 50%);
-  transform: translate(-50%, 50%);
+	-webkit-transform: translate(-50%, 50%);
+	transform: translate(-50%, 50%);
 }
 
 .noUi-rtl .noUi-value-horizontal {
-  -webkit-transform: translate(50%, 50%);
-  transform: translate(50%, 50%);
+	-webkit-transform: translate(50%, 50%);
+	transform: translate(50%, 50%);
 }
 
 .noUi-marker-horizontal.noUi-marker {
-  margin-left: -1px;
-  width: 2px;
-  height: 5px;
+	margin-left: -1px;
+	width: 2px;
+	height: 5px;
 }
 
 .noUi-marker-horizontal.noUi-marker-sub {
-  height: 10px;
+	height: 10px;
 }
 
 .noUi-marker-horizontal.noUi-marker-large {
-  height: 15px;
+	height: 15px;
 }
