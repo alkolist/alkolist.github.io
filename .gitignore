@@ -8,3 +8,4 @@ old/
 /yarn.lock
 /.bundle
 /biome.json
+/node_modules
