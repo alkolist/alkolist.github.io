@@ -24,7 +24,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gems-
       - name: Node install
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
       - run: npm ci
       - run: node _build.js
       - name: Build & Deploy to GitHub Pages
