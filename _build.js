@@ -1,7 +1,7 @@
-const https = require("node:https");
-const fs = require("node:fs");
-const yaml = require("js-yaml");
-const core = require("@actions/core"); // required to be able to fail correctly
+import https from "node:https";
+import fs from "node:fs";
+import yaml from "js-yaml";
+import * as core from "@actions/core"; // required to be able to fail correctly
 
 const url = "https://susbolaget.emrik.org/v1/products";
 
