@@ -2,6 +2,7 @@
 	"name": "alkolist.github.io",
 	"version": "1.0.0",
 	"description": "https://alkolist.github.io/",
+	"type": "module",
 	"main": "_build.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
