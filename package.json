@@ -1,24 +1,24 @@
 {
-	"name": "alkolist.github.io",
-	"version": "1.0.0",
-	"description": "https://alkolist.github.io/",
-	"type": "module",
-	"main": "_build.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/alkolist/alkolist.github.io.git"
-	},
-	"author": "",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/alkolist/alkolist.github.io/issues"
-	},
-	"homepage": "https://github.com/alkolist/alkolist.github.io#readme",
-	"dependencies": {
-		"@actions/core": "^3.0.1",
-		"js-yaml": "^5.2.2"
-	}
+  "name": "alkolist.github.io",
+  "version": "1.0.0",
+  "description": "https://alkolist.github.io/",
+  "type": "module",
+  "main": "_build.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alkolist/alkolist.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alkolist/alkolist.github.io/issues"
+  },
+  "homepage": "https://github.com/alkolist/alkolist.github.io#readme",
+  "dependencies": {
+    "@actions/core": "^3.0.1",
+    "js-yaml": "^5.2.3"
+  }
 }
