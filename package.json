@@ -19,6 +19,6 @@
   "homepage": "https://github.com/alkolist/alkolist.github.io#readme",
   "dependencies": {
     "@actions/core": "^3.0.1",
-    "js-yaml": "^5.2.3"
+    "js-yaml": "^5.3.0"
   }
 }
