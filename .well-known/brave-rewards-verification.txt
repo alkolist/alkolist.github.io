@@ -1,0 +1,4 @@
+This is a Brave Creators publisher verification file.
+
+Domain: alkolist.github.io
+Token: 4aabdd03b3310b2e1e9f06e42b3d6df10fe858e96e2dc9148d3211249ebba7bc
